@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // Se chegou até aqui, a conexão foi bem sucedida
-echo "Conexão bem sucedida!";
+//echo "Conexão bem sucedida!";
 return $conn;
 
 

@@ -1,192 +1,127 @@
-.login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 31.25em;
-  padding: 3.125em;
-  transform: translate(-50%, -50%);
-  background: rgb(3, 21, 124);
-  box-sizing: border-box;
-  box-shadow: 0 0.9375em 1.5625em rgba(5, 5, 5, 0.6);
-  border-radius: 0.625em;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
-.h1 {
-  text-align: center;
-  font-family: 'Madimi One';
-  font-size: 40px;
-  font-weight: normal;
-  color: #9c9e9a;
-  font-style: italic;
-  margin-bottom: 100px;
-  position: relative;
-}
-
-.h1::after {
-  content: '';
-  position: absolute;
-  bottom: -5px; /* Ajuste conforme necessário para a posição da linha */
-  left: 0;
-  width: 0%;
-  height: 2px; /* Ajuste conforme necessário para a espessura da linha */
-  background-color: #4cdf09e0; /* Cor da linha */
-  animation: linePass 15s linear infinite;
-}
-
-@keyframes linePass {
-  0% {
-    width: 0%;
-    left: 0;
-  }
-  100% {
-    width: 100%;
-    left: 0;
-  }
-}
-
-
-.login-box .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  background-image: url(https://img.freepik.com/fotos-premium/diagrama-de-grafico-de-financas-de-grafico-de-negocios-monetarios-sobre-fundo-de-moeda-3d-de-economia-com-dados-financeiros-de-crescimento_882361-1542.jpg);
-  background-position: center center; /* Centraliza a imagem */
-}
-
-.login-box .user-box {
-  position: relative;
-}
-
-.login-box .user-box input {
-  text-align: center;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  outline: none;
-  background: transparent;
-  border-radius: 10px; /* Adiciona arredondamento aos cantos */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.973); /* Adiciona uma sombra */
-}
-
-
-
-.login-box .user-box label {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: max-content; /* Definir a largura para o tamanho máximo do conteúdo */
-  padding: 10px 10px;
-  font-size: 16px;
-  font-family: 'Madimi One';
-  font-style: bold;
-  font-size-adjust: inherit;
-  color: #f5f8f3e0;
-  pointer-events: none;
-  transition: 0.5s;
-
-}
-
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -12px;
-  left: 30px;
-  color: #1ac036;
-  font-size: 15px;
-  font-family: 'Madimi One';
-}
-
-.login-box form a {
-  position: relative;
-  display: block;
-  width: 4.375em;
-  padding: 0.625em 1.25em;
-  color: #ffffff;
-  font-size: 16px;
-  font-family: 'Madimi One';
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.5s;
-  margin-top: 2.5em;
-  letter-spacing: 0.25em;
-}
-
-
-
-.login-box a:hover { 
-  background: #04af12d7;
-  border-radius: 1em;
-  border-top-right-radius: 30em;
-  border-bottom-left-radius: 30em;
-    box-shadow: 0 0 0.313em #19bb048a, 0 0 0.625em #19bb04, 0 0 1.25em #19bb04, 0 0 1.875em #19bb04; 
-}
-
-.login-box a span {
-  position: absolute;
-  display: inline-flex;
-  
-}
-
-.login-box a span:nth-child(1) {
-  bottom: 0.063em;
-  left: -100%;
-  width: 100%;
-  height: 0.063em;
-  background: linear-gradient(90deg, transparent, #03f40f);
-  animation: animate 6s linear infinite;
-}
-
-@keyframes animate {
-  0% {
-    left: -100%;
-  }
-  50%, 100% {
-    left: 100%;
-  }
-}
-
-.sing-up {
-  text-align: center; /* Centraliza o texto */
-  margin-top: 3.75em; /* Ajusta a margem superior */
-  white-space: 1,25em;
-  color: #dde7dc;
-  font-family: 'Madimi One';
-}
-
-.sing-up .cadastre{  
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgba(122, 212, 145, 0.986);
-  text-align: center;
-  box-shadow: 0 0 0.063em #19bb0454, 0 0 0.125em #19bb0454, 0 0 0.313em #19bb0454, 0 0 0.375em #19bb0454;
-  box-decoration-break: slice;  
-}
-
-.planodefundo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+body{
   margin: 0;
-  padding: 0;
-  background-image: url(https://capitalresearch.com.br/wp-content/uploads/2019/10/shutterstock_751455562.jpg);
-  
+  font-family: "Noto Serif", serif;
 }
 
-
-
-.madimi-one-regular {
-  font-family: "Madimi One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.main-login{
+  width: 100vw;
+  height: 100vh;
+  background-color: #1A365D;
+  display: flex;
 }
 
+.left-login{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login > h1{
+  font-size: 3vw;
+  color: #f1f1f1;
+}
+
+.login-left-image{
+  width: 35vw;
+}
+
+.right-login{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #3F8FDA;
+  border-radius: 20px; 
+  box-shadow: 0px 10px 40px #00000056
+}
+
+.card-login > h1{
+  color: #f1f1f1;
+  font-weight: 800;
+  margin: 0;
+}
+
+.textfield{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.textfield > input{
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #c5dbf0f6;
+  color: #98acacde;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label{
+  color:rgb(5, 1, 1);
+  margin-top: 10px;
+}
+
+.textfield > input::placeholder{
+  color: #585a5a94;
+}
+
+.btn-login{
+  width: 100%;
+  padding: 16px 0;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: rgb(23, 26, 26);
+  background: #eafa06;
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px  #00ff0052;
+}
+
+@media only screen and (max-width: 950px){
+  .card-login{
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .main-login{
+    flex-direction: column;
+  }
+  .left-login h1{
+    display: none;
+  }
+  .left-login{
+    width: 100%;
+    height: auto;
+  }
+
+  .right-login{
+    width: 100%;
+    height: auto;
+  }
+}
