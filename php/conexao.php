@@ -1,8 +1,9 @@
 <?php
+
 // Configurações do banco de dados
 $host = "localhost"; // Host do banco de dados
-$usuario = "ayslan"; // Usuário do banco de dados
-$senha = "E3jnECC6Y6e0/BK*"; // Senha do banco de dados
+$usuario = "Ayslan"; // Usuário do banco de dados
+$senha = "!rYH3)3Euh[@hTyN"; // Senha do banco de dados
 $banco = "ayslan"; // Nome do banco de dados
 
 // Conexão com o banco de dados

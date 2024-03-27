@@ -1,6 +1,6 @@
 <?php
 // Incluir o arquivo de conexão com o banco de dados
-require_once "php/conexao.php";
+require_once "..php/conexao.php";
 
 // Recuperar dados do formulário
 $email = $_POST['email'];
