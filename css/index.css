@@ -5,6 +5,10 @@ body{
   font-family: "Noto Serif", serif;
 }
 
+body *{
+  box-sizing: border-box;
+}
+
 .main-login{
   width: 100vw;
   height: 100vh;
@@ -123,5 +127,13 @@ body{
   .right-login{
     width: 100%;
     height: auto;
+  }
+
+  .login-left-image{
+    width: 50vw;
+  }
+
+  .card-login{
+    width: 90;
   }
 }
