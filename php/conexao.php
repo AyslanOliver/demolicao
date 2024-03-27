@@ -8,6 +8,7 @@ $banco = "ayslan"; // Nome do banco de dados
 
 // Conexão com o banco de dados
 $conn = new mysqli($host, $usuario, $senha, $banco);
+return $conn;
 
 // Verifica se a conexão foi estabelecida com sucesso
 if ($conn->connect_error) {

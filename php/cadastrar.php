@@ -1,6 +1,5 @@
 <?php
 require_once '../php/conexao.php';
-
 // Verifica se a requisição é do tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Exibir pop-up com a mensagem
         echo '<script>alert("Cadastro realizado com sucesso!");</script>';
         // Redirecionar para dashboard.html após exibir o pop-up
-        echo '<script>window.location = "dashboard.html";</script>';
+        echo '<script>window.location = "../index.html";</script>';
         exit(); // Termina o script após o redirecionamento
     } else {
         echo "Erro ao inserir registro: " . $conn->error;
