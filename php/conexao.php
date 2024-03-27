@@ -8,7 +8,6 @@ $banco = "ayslan"; // Nome do banco de dados
 
 // Conexão com o banco de dados
 $conn = new mysqli($host, $usuario, $senha, $banco);
-return $conn;
 
 // Verifica se a conexão foi estabelecida com sucesso
 if ($conn->connect_error) {
@@ -17,6 +16,8 @@ if ($conn->connect_error) {
 
 // Se chegou até aqui, a conexão foi bem sucedida
 echo "Conexão bem sucedida!";
+return $conn;
+
 
 // Não é necessário fechar a conexão aqui, pois isso será feito automaticamente ao final do script
 

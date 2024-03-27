@@ -1,4 +1,5 @@
 <?php
+
 require_once '../php/conexao.php';
 // Verifica se a requisição é do tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -30,4 +31,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Fecha a conexão ao final
 $conn->close();
-?>
