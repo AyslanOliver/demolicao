@@ -1,139 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+/* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-body{
-  margin: 0;
-  font-family: "Noto Serif", serif;
+/* ====== BASE ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body *{
-  box-sizing: border-box;
-}
+/* ====== Body ===== */
 
-.main-login{
-  width: 100vw;
-  height: 100vh;
-  background-color: #1A365D;
-  display: flex;
-}
 
-.left-login{
-  width: 50vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ====== Form container ===== */
 
-.left-login > h1{
-  font-size: 3vw;
-  color: #f1f1f1;
-}
 
-.login-left-image{
-  width: 35vw;
-}
+/* ====== First Column ===== */
 
-.right-login{
-  width: 50vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.card-login{
-  width: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 30px 35px;
-  background: #3F8FDA;
-  border-radius: 20px; 
-  box-shadow: 0px 10px 40px #00000056
-}
+/* ====== Form Image Animation ===== */
 
-.card-login > h1{
-  color: #f1f1f1;
-  font-weight: 800;
-  margin: 0;
-}
 
-.textfield{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 10px 0px;
-}
+/* ====== Featured Words ===== */
 
-.textfield > input{
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  padding: 15px;
-  background: #c5dbf0f6;
-  color: #98acacde;
-  font-size: 12pt;
-  box-shadow: 0px 10px 40px;
-  outline: none;
-  box-sizing: border-box;
-}
 
-.textfield > label{
-  color:rgb(5, 1, 1);
-  margin-top: 10px;
-}
+/* ====== Second Column ===== */
 
-.textfield > input::placeholder{
-  color: #585a5a94;
-}
 
-.btn-login{
-  width: 100%;
-  padding: 16px 0;
-  margin: 25px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: rgb(23, 26, 26);
-  background: #eafa06;
-  cursor: pointer;
-  box-shadow: 0px 10px 40px -12px  #00ff0052;
-}
+/*  ======= Login Form ========  */
 
-@media only screen and (max-width: 950px){
-  .card-login{
-    width: 85%;
-  }
-}
 
-@media only screen and (max-width: 600px){
-  .main-login{
-    flex-direction: column;
-  }
-  .left-login h1{
-    display: none;
-  }
-  .left-login{
-    width: 100%;
-    height: auto;
-  }
+/*  ======= Register Form ========  */
 
-  .right-login{
-    width: 100%;
-    height: auto;
-  }
 
-  .login-left-image{
-    width: 50vw;
-  }
-
-  .card-login{
-    width: 90;
-  }
-}
+/* ======== Responsive ======== */
