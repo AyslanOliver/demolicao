@@ -19,17 +19,20 @@
       <div class="card-login">
         <h1>Login</h1>
 
-        <div class="textfield">
-          <label for="usuario">Usuario</label>
-          <input type="text" name="usuario" placeholder="Usuário">
-        </div>
+        <form action="../site/php/login.php" method="post">
+          
+          <div class="textfield">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" placeholder="Usuário">
+          </div>
 
-        <div class="textfield">
-          <label for="senha">Senha</label>
-          <input type="password" name="senha" placeholder="Senha">
-        </div>
+          <div class="textfield">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" placeholder="Senha">
+          </div>
 
-        <button class="btn-login">Login</button>
+          <button type="submit" class="btn-login">Login</button>
+        </form>
 
       </div>
     </div>
