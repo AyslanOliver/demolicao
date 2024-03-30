@@ -4,7 +4,7 @@ session_start();
 // Verifica se os campos de nome e senha foram preenchidos
 if(isset($_POST['email']) && isset($_POST['senha'])) {
     // Inclui o arquivo de conexão
-    include '../site/php/login.php';
+    include '../php/conexao.php';
     
     // Evita SQL Injection
     $nome = $conn->real_escape_string($_POST['email']);

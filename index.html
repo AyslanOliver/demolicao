@@ -3,26 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludiflex | Login & Register</title>
+    <title>FINANÇAS</title>
     <!-- BOXICONS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- STYLE -->
-    <link rel="stylesheet" href="/css/logintela.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <!-- Form Container -->
-    <style>body{
-        background: url("image/background.jpg");
         
-    }</style>
-    <p>SEJA BEM VINDO</p>
+    <div class="form-contaneir">
+        <div class="col col-1">
+            <div class="image-layer">
+                <img src="/image/white-outline.png" class="form-image-main">
+                <img src="/image/dots.png" class="form-image dots">
+                <img src="/image/coin.png" class="form-image coin">
+                <img src="/image/spring.png" class="form-image spring">
+                <img src="/image/rocket.png" class="form-image rocket">
+                <img src="/image/cloud.png" class="form-image cloud">
+                <img src="/image/stars.png" class="form-image star">
+            </div>
+            <p class="featured-words">Você esta a pouco tempo de impucionar suas finanças!</p><span>Ayslan Oliveira</span>
+        </div>
+         
+        <div class="col col-2">
+            <div class="btn-box">
+                <button class="btn btn-1" id="login">Login</button>
+                <button class="btn btn -2" id="register">Registrar-se</button>
+            </div>
+
             <!-- Login Form Container -->
-           
+            <div class="login-form">
+                <div class="form-title">
+                    <span>Login</span>
+                </div>
+                <div class="forms-iputs">
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Nome" required>
+                        <i class="bx bx-user icon"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Senha" required>
+                        <i class="bx bx-lock-alt icon"></i>
+                    </div>
+                    <div class="forgot-pass">
+                        <a href="#">Esqueceu a Senha?</a>
+                    </div>
+                    <div class="input-box">
+                        <button class="input-submit">
+                            <span>Login</span>
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="social-login">
+                    <i class="bx bxl-google"></i>
+                    <i class="bx bxl-facebook"></i>
+                    <i class="bx bxl-twitter"></i>
+                    <i class="bx bxl-github"></i>
+                </div>
+            </div>
+        </div>   
+    
+    </div>
             <!-- Register Form Container -->
             
     
 
     <!-- JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
