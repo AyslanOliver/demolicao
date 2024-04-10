@@ -111,3 +111,102 @@ body{
 .register-link a:hover{
     text-decoration: underline;
 }
+
+/* Para telas menores, como smartphones */
+@media screen and (max-width: 768px) {
+	#sidebar {
+		width: 200px;
+	}
+
+	#content {
+		width: calc(100% - 200px);
+		left: 200px;
+	}
+
+	#sidebar.hide {
+		width: 0;
+	}
+
+	#sidebar .brand {
+		padding-bottom: 10px;
+	}
+
+	#sidebar .side-menu li {
+		margin-left: 0;
+		border-radius: 0;
+	}
+
+	#sidebar .side-menu li.active::before,
+	#sidebar .side-menu li.active::after {
+		display: none;
+	}
+
+	#content nav .nav-link {
+		display: none;
+	}
+}
+
+/* Para telas ainda menores, como dispositivos móveis */
+@media screen and (max-width: 576px) {
+	#sidebar {
+		width: 100%;
+	}
+
+	#content {
+		width: 100%;
+		left: 0;
+	}
+
+	#sidebar .side-menu li {
+		height: auto;
+	}
+
+	#sidebar .side-menu li a {
+		border-radius: 0;
+	}
+
+	#sidebar.hide .side-menu li a {
+		width: 100%;
+	}
+
+	#sidebar .brand {
+		font-size: 20px;
+		padding-bottom: 10px;
+	}
+
+	#content nav .form-input input {
+		display: none;
+	}
+
+	#content nav .form-input button {
+		width: auto;
+		height: auto;
+		border-radius: 0;
+	}
+
+	#content nav form.show .form-input input {
+		display: block;
+		width: calc(100% - 36px);
+	}
+
+	#content nav form.show .form-input button {
+		width: 36px;
+		height: 36px;
+		border-radius: 0;
+	}
+
+	#content nav .notification,
+	#content nav .profile {
+		display: none;
+	}
+
+	#content main .head-title .left h1 {
+		font-size: 28px;
+	}
+
+	#content main .head-title .btn-download {
+		height: 32px;
+		padding: 0 12px;
+		font-size: 14px;
+	}
+}
