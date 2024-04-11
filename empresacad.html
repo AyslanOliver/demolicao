@@ -348,89 +348,92 @@
                         <div class="card-body">
                             <div class="table-responsiveee">
                                 <form action="#" method="post" enctype="multipart/form-data">
-                                    <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa" value="130">
-                    
+                                    <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa"
+                                        value="130">
+
                                     <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">CNPJ *</label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" value size="10" maxlength="9">
-                                        
+                                            for="inlineFormCustomSelect">CNPJ *</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj"
+                                                id="cnpj" value size="8" maxlength="18">
+                                        </div>
+                                        <button class="btn btn-secondary btn-sm btn-icon-split" type="button"
+                                            id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
+                                        <div class="input-group-append">
+
+                                        </div>
                                     </div>
-                                    <button class="btn btn-secondary btn-sm btn-icon-split" type="button" id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
-                                    <div class="input-group-append">
-                                                
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Razão Social *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="razao_social" id="razao_social" required></div>
                                     </div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Razão Social *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="razao_social" id="razao_social" required></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Nome Fantasia *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="nome_fantasia" id="nome_fantasia"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Data de Abertura *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="data_abertura" id="data_abertura"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Número de Contato *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="ddd_telefone_1" id="ddd_telefone_1"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">E-mail *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="email"
-                                            name="email" id="email"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">CEP *</label>
-                                    <div class="col-sm-6">
-                                        <div class="input-group mb-3"><input class="form-control mr-sm-2 form-control-sm"
-                                                placeholder="CEP" type="text" id="cep" value="" size="10"
-                                                maxlength="9" name="cep">
-                                            <div class="input-group-append">
-                                               
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Nome Fantasia *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="nome_fantasia" id="nome_fantasia"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Data de Abertura *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="data_abertura" id="data_abertura"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Número de Contato *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">E-mail *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="email" name="email" id="email"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">CEP *</label>
+                                        <div class="col-sm-6">
+                                            <div class="input-group mb-3"><input
+                                                    class="form-control mr-sm-2 form-control-sm" placeholder="CEP"
+                                                    type="text" id="cep" value="" size="10" maxlength="9" name="cep">
+                                                <div class="input-group-append">
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Logradouro *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="logradouro" id="logradouro"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Número *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="numero" id="numero"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Bairro *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="bairro" id="bairro"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">Município *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="municipio" id="municipio"></div>
-                                </div>
-                                <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">UF *</label>
-                                    <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
-                                            name="uf" id="uf"></div>
-                                </div>                                                
-                                                                                             
-                                        <div class="column one"><input type="submit" value="GRAVAR" class="btn btn-success" /></div>
-                                        <div class="wpcf7-response-output" aria-hidden="true"></div>
-                                    </form>
-                                </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Logradouro *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="logradouro" id="logradouro"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Número *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="numero" id="numero"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Bairro *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="bairro" id="bairro"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Município *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="municipio" id="municipio"></div>
+                                    </div>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                            for="inlineFormCustomSelect">Estado *</label>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                type="text" name="uf" id="uf"></div>
+                                    </div>
+
+                                    <div class="column one"><input type="submit" value="Gravar"
+                                            class="btn btn-success" /></div>
+                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                </form>
                             </div>
                         </div>
-                    
+                    </div>
+
                     </div>
                     <!-- /.container-fluid -->
                     
@@ -438,11 +441,14 @@
                     <!-- End of Main Content -->
 
                     <!-- Script para Auto Complete CNPJ -->
+
                     <script>
+                        
+                        // Função para consultar o CNPJ
                         function consultarCNPJ() {
                             var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
                             var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
-                    
+                            
                             fetch(url)
                                 .then(response => {
                                     if (!response.ok) {
@@ -458,14 +464,15 @@
                                     alert('Erro ao consultar CNPJ');
                                 });
                         }
-                    
+                        
+                        // Função para preencher os campos do formulário
                         function preencherCampos(data) {
                             document.getElementById('razao_social').value = data.razao_social || '';
                             document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
                             document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data.data_inicio_atividade) : '';
                             document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data.ddd_telefone_1) : '';
                             document.getElementById('email').value = data.email || '';
-                            document.getElementById('cep').value = data.cep || '';
+                            document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
                             document.getElementById('logradouro').value = data.logradouro || '';
                             document.getElementById('numero').value = data.numero || '';
                             document.getElementById('bairro').value = data.bairro || '';
@@ -473,16 +480,42 @@
                             document.getElementById('uf').value = data.uf || '';
                             // Preencha os outros campos do formulário conforme necessário
                         }
-                    
+                        
+                        // Função para formatar a data
                         function formatarData(data) {
                             var partes = data.split('-');
                             return partes[2] + '/' + partes[1] + '/' + partes[0];
                         }
-                    
-                        function formatarTelefone(telefone) {
-                            return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2);
+                        
+                        // Função para formatar o CEP
+                        function formatarCEP(cep) {
+                            return cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
                         }
+                        
+                        // Função para formatar o CNPJ
+                        function formatarCNPJ(cnpj) {
+                            return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+                        }
+                        
+                        // Função para formatar o telefone
+                        function formatarTelefone(telefone) {
+                            if (telefone.length === 10) {
+                                return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone.substring(6);
+                            } else if (telefone.length === 11) {
+                                return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone.substring(7);
+                            } else {
+                                return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
+                            }
+                        }
+                        
+                        // Adicionando evento de input para o campo CNPJ
+                        document.getElementById('cnpj').addEventListener('input', function() {
+                            var cnpj = this.value.replace(/[^\d]+/g, '');
+                            this.value = formatarCNPJ(cnpj);
+                        });
                     </script>
+                    
+                    
                 <!-- Fim do Script para Auto Complete CNPJ -->
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
