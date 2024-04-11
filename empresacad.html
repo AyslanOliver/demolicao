@@ -88,8 +88,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operação:</h6>
-                        <a class="collapse-item" href="/empresacad.html">Cadastro de Empresa</a>     
-                        <a class="collapse-item" href="/clientecad.html">Cadastro de Clientes</a>                   
+                        <a class="collapse-item" href="/empresacad.html">Cadastro de Empresa</a>
+                        <a class="collapse-item" href="/clientecad.html">Cadastro de Clientes</a>
                     </div>
                 </div>
             </li>
@@ -114,12 +114,12 @@
                         <h6 class="collapse-header">Operação:</h6>
                         <a class="collapse-item" href="#">Consultar Empresa</a>
                         <a class="collapse-item" href="#">Consultar Cliente</a>
-                       
+
                     </div>
                 </div>
-            </li>            
+            </li>
 
-            <!-- Nav Item - Tables -->            
+            <!-- Nav Item - Tables -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -130,7 +130,7 @@
             </div>
 
             <!-- Sidebar Message -->
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -150,7 +150,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -230,7 +230,7 @@
                             </div>
                         </li>-->
 
-                        <!-- Nav Item - Messages -->
+                            <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,13 +298,12 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>-->
 
-                        <!-- Nav Item - User Information -->
+                            <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayslan Oliveira</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -338,7 +337,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
+
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -354,14 +353,16 @@
                                     <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CNPJ *</label>
                                         <div class="col-sm-6">
+                                            
                                             <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj"
-                                                id="cnpj" value size="8" maxlength="18">
+                                               id="cnpj" value size="8" maxlength="18">                                      
+                                                                                             
                                         </div>
-                                        <button class="btn btn-secondary btn-sm btn-icon-split" type="button"
-                                            id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
-                                        <div class="input-group-append">
-
+                                        <div class="input-group-append m-2 m-1">
+                                            <button class="btn btn-secondary btn-icon-split btn-sm" type="button"
+                                                id="button-addon2" onclick="consultarCNPJ()">Consultar</button> 
                                         </div>
+                                        
                                     </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Razão Social *</label>
@@ -434,139 +435,143 @@
                         </div>
                     </div>
 
-                    </div>
-                    <!-- /.container-fluid -->
-                    
-                    </div>
-                    <!-- End of Main Content -->
-
-                    <!-- Script para Auto Complete CNPJ -->
-
-                    <script>
-                        
-                        // Função para consultar o CNPJ
-                        function consultarCNPJ() {
-                            var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
-                            var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
-                            
-                            fetch(url)
-                                .then(response => {
-                                    if (!response.ok) {
-                                        throw new Error('Erro ao consultar CNPJ');
-                                    }
-                                    return response.json();
-                                })
-                                .then(data => {
-                                    preencherCampos(data);
-                                })
-                                .catch(error => {
-                                    console.error('Erro:', error);
-                                    alert('Erro ao consultar CNPJ');
-                                });
-                        }
-                        
-                        // Função para preencher os campos do formulário
-                        function preencherCampos(data) {
-                            document.getElementById('razao_social').value = data.razao_social || '';
-                            document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
-                            document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data.data_inicio_atividade) : '';
-                            document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data.ddd_telefone_1) : '';
-                            document.getElementById('email').value = data.email || '';
-                            document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
-                            document.getElementById('logradouro').value = data.logradouro || '';
-                            document.getElementById('numero').value = data.numero || '';
-                            document.getElementById('bairro').value = data.bairro || '';
-                            document.getElementById('municipio').value = data.municipio || '';
-                            document.getElementById('uf').value = data.uf || '';
-                            // Preencha os outros campos do formulário conforme necessário
-                        }
-                        
-                        // Função para formatar a data
-                        function formatarData(data) {
-                            var partes = data.split('-');
-                            return partes[2] + '/' + partes[1] + '/' + partes[0];
-                        }
-                        
-                        // Função para formatar o CEP
-                        function formatarCEP(cep) {
-                            return cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
-                        }
-                        
-                        // Função para formatar o CNPJ
-                        function formatarCNPJ(cnpj) {
-                            return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
-                        }
-                        
-                        // Função para formatar o telefone
-                        function formatarTelefone(telefone) {
-                            if (telefone.length === 10) {
-                                return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone.substring(6);
-                            } else if (telefone.length === 11) {
-                                return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone.substring(7);
-                            } else {
-                                return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
-                            }
-                        }
-                        
-                        // Adicionando evento de input para o campo CNPJ
-                        document.getElementById('cnpj').addEventListener('input', function() {
-                            var cnpj = this.value.replace(/[^\d]+/g, '');
-                            this.value = formatarCNPJ(cnpj);
-                        });
-                    </script>
-                    
-                    
-                <!-- Fim do Script para Auto Complete CNPJ -->
-<!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Ayslan Oliveira 2024</span>
-        </div>
-    </div>
-</footer>
-<!-- End of Footer -->
- <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
-                <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Sair</a>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Script para Auto Complete CNPJ -->
+
+            <script>
+                // Função para consultar o CNPJ
+                function consultarCNPJ() {
+                    var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
+                    var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
+
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Erro ao consultar CNPJ');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            preencherCampos(data);
+                        })
+                        .catch(error => {
+                            console.error('Erro:', error);
+                            alert('Erro ao consultar CNPJ');
+                        });
+                }
+
+                // Função para preencher os campos do formulário
+                function preencherCampos(data) {
+                    document.getElementById('razao_social').value = data.razao_social || '';
+                    document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
+                    document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data
+                        .data_inicio_atividade) : '';
+                    document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data
+                        .ddd_telefone_1) : '';
+                    document.getElementById('email').value = data.email || '';
+                    document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
+                    document.getElementById('logradouro').value = data.logradouro || '';
+                    document.getElementById('numero').value = data.numero || '';
+                    document.getElementById('bairro').value = data.bairro || '';
+                    document.getElementById('municipio').value = data.municipio || '';
+                    document.getElementById('uf').value = data.uf || '';
+                    // Preencha os outros campos do formulário conforme necessário
+                }
+
+                // Função para formatar a data
+                function formatarData(data) {
+                    var partes = data.split('-');
+                    return partes[2] + '/' + partes[1] + '/' + partes[0];
+                }
+
+                // Função para formatar o CEP
+                function formatarCEP(cep) {
+                    return cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
+                }
+
+                // Função para formatar o CNPJ
+                function formatarCNPJ(cnpj) {
+                    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+                }
+
+                // Função para formatar o telefone
+                function formatarTelefone(telefone) {
+                    if (telefone.length === 10) {
+                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone
+                            .substring(6);
+                    } else if (telefone.length === 11) {
+                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone
+                            .substring(7);
+                    } else {
+                        return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
+                    }
+                }
+
+                // Adicionando evento de input para o campo CNPJ
+                document.getElementById('cnpj').addEventListener('input', function () {
+                    var cnpj = this.value.replace(/[^\d]+/g, '');
+                    this.value = formatarCNPJ(cnpj);
+                });
+            </script>
+
+
+            <!-- Fim do Script para Auto Complete CNPJ -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Ayslan Oliveira 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+            <!-- End of Page Wrapper -->
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão
+                            atual.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-primary" href="login.html">Sair</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
+            <!-- Page level custom scripts -->
 </body>
 
 </html>
