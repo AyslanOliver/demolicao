@@ -337,20 +337,194 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Cadastro de Empresa</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Report Bug</a>
-                    </div>
+                    
 
                     <!-- Content Row -->
                     <div class="row">
-
-
-
-
-
-
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Cadastro de Novo Aluno</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsiveee">
+                                    <form action="grava_alunos.php" method="post" enctype="multipart/form-data">
+                                        <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa" value="130">
+                    
+                                        <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">NOME DO ALUNO * (max. 29 caracteres)</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="nome" maxlength="29" id="data_final" required></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">APELIDO DO ALUNO *</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="apelido" id="data_final"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">DATA DE NASCIMENTO *</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="date"
+                                                    name="nascimento" id="data_final" required></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">GENERO *</label>
+                                            <div class="col-sm-6">
+                                                <select name="genero" id="categoria" class="form-control form-control-sm" required>
+                                                    <option value="">SELECIONE...</option>
+                                                    <option value="M">MASCULINO</option>
+                                                    <option value="F">FEMININO</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">CPF *</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text" name="cpf"
+                                                    id="cpf" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)"
+                                                    onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)" required></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">RG *</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text" name="rg"
+                                                    id="data_final"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">CELULAR *</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="celular" id="telefone" placeholder="Digite um número de telefone" maxlength="15">
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">EMAIL </label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="email" id="data_final"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">CEP *</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group mb-3"><input class="form-control mr-sm-2 form-control-sm"
+                                                        placeholder="Digite Apenas os números" type="text" id="cep" value="" size="10"
+                                                        maxlength="9" name="cep">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary btn-sm" type="button" id="button-addon2"
+                                                            onclick="pesquisacep(cep.value)">Buscar Endereço</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">ENDERECO</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="endereco" id="rua"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">NUMERO *</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="numero" id="numero"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">BAIRRO</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="bairro" id="bairro"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">CIDADE</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="cidade" id="cidade"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">ESTADO</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="estado" id="estado"></div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">GRADUAÇÃO ATUAL *</label>
+                                            <div class="col-sm-6">
+                                                <select name="graduacao" id="categoria" class="form-control form-control-sm" required>
+                                                    <option value="">SELECIONE...</option>
+                                                    <option value='60'>Amarelo 2o khan</option>
+                                                    <option value='61'>Amarelo com Branco 3o Khan</option>
+                                                    <option value='62'>Verde 4o Khan</option>
+                                                    <option value='63'>Verde com Branco 5o Khan</option>
+                                                    <option value='64'>Azul 6o Khan</option>
+                                                    <option value='65'>Azul com Branco 7o Khan</option>
+                                                    <option value='66'>Marrom 8o Khan</option>
+                                                    <option value='67'>Marrom com Branco 9o Khan</option>
+                                                    <option value='68'>Vermelho 10o Khan</option>
+                                                    <option value='69'>Vermelho com Branco 11o Khan</option>
+                                                    <option value='70'>Preto 12o Khan</option>
+                                                    <option value='84'>Branco 1o Khan</option>
+                                                    <option value='177'>Branco com ponta Vermelho 2oKhan</option>
+                                                    <option value='178'>Vermelho 3oKhan</option>
+                                                    <option value='179'>Vermelho com ponta Azul Claro 4o Khan</option>
+                                                    <option value='180'>Azul Claro 5o Khan</option>
+                                                    <option value='181'>Azul Claro com ponta Azul Escuro 6o Khan</option>
+                                                    <option value='182'>Azul Escuro 7o Khan</option>
+                                                    <option value='183'>Azul Escuro com ponta Preta 8o Khan</option>
+                                                    <option value='184'>Preto 9o Khan</option>
+                                                    <option value='185'>Preto com Branco 10o Khan</option>
+                                                    <option value='186'>KIDS: Branca</option>
+                                                    <option value='187'>KIDS: Cinza</option>
+                                                    <option value='188'>KIDS: Cinza e Amarelo</option>
+                                                    <option value='189'>KIDS: Cinza e Branco</option>
+                                                    <option value='190'>KIDS: Cinza e Azul</option>
+                                                    <option value='191'>KIDS: Cinza e Verde</option>
+                                                    <option value='192'>KIDS: Laranja</option>
+                                                    <option value='193'>KIDS: Laranja e Branco</option>
+                                                    <option value='194'>KIDS: Laranja e Amarelo</option>
+                                                    <option value='195'>KIDS: Laranja e Verde</option>
+                                                    <option value='196'>KIDS: Laranja e Azul</option>
+                                                    <option value='197'>Preto com Branco 13o Khan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                    
+                    
+                    
+                                        <div class="form-group row top5">
+                                            <label class="col-sm-3" id="small" for="inlineFormCustomSelect"> FOTO<h11>*</h11></label>
+                                            <div class="col-sm-4">
+                                                <input type="file" name="pic" id="arquivo" accept="image/*"
+                                                    class="form-control form-control-sm" onchange="previewImage(event);">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <img id="preview" width="150px">
+                                            </div>
+                                        </div>
+                    
+                    
+                    
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">PESO</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="peso" id="data_final">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">CARTEL</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="cartel" id="data_final">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                                for="inlineFormCustomSelect">SHERDOG</label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                    name="sherdog" id="data_final"></div>
+                                        </div>
+                    
+                    
+                                        <div class="column one"><input type="submit" value="GRAVAR" class="btn btn-success" /></div>
+                                        <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <!-- /.container-fluid -->
+                    
+                    </div>
+                    <!-- End of Main Content -->
 
 
 
