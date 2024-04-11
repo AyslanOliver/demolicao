@@ -353,7 +353,7 @@
                                         for="inlineFormCustomSelect">CNPJ *</label>
                                     <div class="col-sm-6">
                                         <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" maxlength="18" id="cnpj" required>
-                                        <button class="btn btn-primary btn-sm" type="button" onclick="consultarCNPJ()">Consultar</button>
+                                        <button class="btn btn-primary btn-sm" type="button" id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
                                     </div>
                                 </div>
                                 <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
@@ -372,7 +372,7 @@
                                             name="data_abertura" id="data_abertura"></div>
                                 </div>
                                 <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">DDD Telefone 1</label>
+                                        for="inlineFormCustomSelect">Número de Contato</label>
                                     <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" type="text"
                                             name="ddd_telefone_1" id="ddd_telefone_1"></div>
                                 </div>
@@ -385,11 +385,10 @@
                                         for="inlineFormCustomSelect">CEP *</label>
                                     <div class="col-sm-6">
                                         <div class="input-group mb-3"><input class="form-control mr-sm-2 form-control-sm"
-                                                placeholder="Digite Apenas os números" type="text" id="cep" value="" size="10"
+                                                placeholder="CEP" type="text" id="cep" value="" size="10"
                                                 maxlength="9" name="cep">
                                             <div class="input-group-append">
-                                                <button class="btn btn-primary btn-sm" type="button" id="button-addon2"
-                                                    onclick="pesquisacep(cep.value)">Buscar Endereço</button>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -438,28 +437,28 @@
                         function consultarCNPJ() {
                             var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
                             var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
-                        
+                    
                             fetch(url)
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Erro ao consultar CNPJ');
-                                }
-                                return response.json();
-                            })
-                            .then(data => {
-                                preencherCampos(data);
-                            })
-                            .catch(error => {
-                                console.error('Erro:', error);
-                                alert('Erro ao consultar CNPJ');
-                            });
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Erro ao consultar CNPJ');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    preencherCampos(data);
+                                })
+                                .catch(error => {
+                                    console.error('Erro:', error);
+                                    alert('Erro ao consultar CNPJ');
+                                });
                         }
-                        
+                    
                         function preencherCampos(data) {
                             document.getElementById('razao_social').value = data.razao_social || '';
                             document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
                             document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data.data_inicio_atividade) : '';
-                            document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 || '';
+                            document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data.ddd_telefone_1) : '';
                             document.getElementById('email').value = data.email || '';
                             document.getElementById('cep').value = data.cep || '';
                             document.getElementById('logradouro').value = data.logradouro || '';
@@ -469,12 +468,16 @@
                             document.getElementById('uf').value = data.uf || '';
                             // Preencha os outros campos do formulário conforme necessário
                         }
-                        
+                    
                         function formatarData(data) {
                             var partes = data.split('-');
                             return partes[2] + '/' + partes[1] + '/' + partes[0];
                         }
-                        </script>
+                    
+                        function formatarTelefone(telefone) {
+                            return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2);
+                        }
+                    </script>
                 <!-- Fim do Script para Auto Complete CNPJ -->
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
