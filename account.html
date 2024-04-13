@@ -88,8 +88,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operação:</h6>
-                        <a class="collapse-item" href="/empresacad.html">Cadastro de Empresa</a>
-                        <a class="collapse-item" href="/clientecad.html">Cadastro de Clientes</a>
+                        <a class="collapse-item" href="empresacad.html">Cadastro de Empresa</a>
+                        <a class="collapse-item" href="clientecad.html">Cadastro de Clientes</a>                        
                     </div>
                 </div>
             </li>
@@ -114,12 +114,12 @@
                         <h6 class="collapse-header">Operação:</h6>
                         <a class="collapse-item" href="#">Consultar Empresa</a>
                         <a class="collapse-item" href="#">Consultar Cliente</a>
-
+                       
                     </div>
                 </div>
-            </li>
+            </li>            
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Tables -->            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -130,7 +130,7 @@
             </div>
 
             <!-- Sidebar Message -->
-
+            
 
         </ul>
         <!-- End of Sidebar -->
@@ -150,7 +150,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-
+                
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -230,7 +230,7 @@
                             </div>
                         </li>-->
 
-                            <!-- Nav Item - Messages -->
+                        <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,19 +298,20 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>-->
 
-                            <!-- Nav Item - User Information -->
+                        <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayslan Oliveira</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="account.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                   Meus Dados
+                                    Meus Dados
                                 </a>
                                 <a class="dropdown-item" href="acess.html">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -337,242 +338,315 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-
+                    
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Cadastro de Nova Empresa</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Meus Dados</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsiveee">
-                                <form action="#" method="post" >
-                                    <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa"
-                                        value="130">
+                            <div class="table-responsive">
+                                <form action="altera_cadastro.php" method="post">
+                                    <input type="hidden" name="cod_for" value="64">
+                                    <div class="container-fluid">
 
-                                    <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">CNPJ *</label>
-                                        <div class="col-sm-6">
-                                            <div class="input-group-append mb-2">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj"
-                                              id="cnpj" value size="8" maxlength="18">
-                                               <button class="btn btn-secondary btn-sm " type="button"
-                                                id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
-                                          </div>                                                                   
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" value="058.906.865-26" placeholder="CNPJ ou CPF"
+                                                    id="cpf-cnpj" name="cpf_cnpj" class="form-control form-control-user"
+                                                    onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)"
+                                                    onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
+
                                             </div>
-                                    </div>
 
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Razão Social </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="razao_social" id="razao_social" required></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Nome Fantasia </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="nome_fantasia" id="nome_fantasia"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Data de Abertura </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="data_abertura" id="data_abertura"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Número de Contato </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">E-mail </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="email" name="email" id="email"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">CEP </label>
-                                        <div class="col-sm-6">
-                                           <input class="form-control mr-sm-2 form-control-sm" 
-                                                    type="text" id="cep" value="" size="10" maxlength="9" name="cep">
-                                                <div class="input-group-append">
-                                                </div>                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" value="Ayslan Oliveira"
+                                                class="form-control form-control-user" id="razao"
+                                                placeholder="Razão Social" name="razao">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" value="Ayslan" class="form-control form-control-user"
+                                                id="fantasia" placeholder="Nome Fantasia" name="fantasia">
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" value="" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Website" name="website">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" value="" class="form-control form-control-user"
+                                                    id="exampleRepeatPassword" placeholder="Instagram" name="instagram">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" value="ISENTO" class="form-control form-control-user"
+                                                    id="exampleInputPassword" placeholder="Inscrição Municipal"
+                                                    name="insc_mun">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" value="ISENTO" class="form-control form-control-user"
+                                                    id="exampleRepeatPassword" placeholder="Inscrição Estadual"
+                                                    name="insc_est">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="date" value="2000-01-01"
+                                                    class="form-control form-control-user" id="exampleInputPassword"
+                                                    placeholder="Data de Fundação" name="data_fun">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" value="Ayslan Oliveira"
+                                                    class="form-control form-control-user" id="exampleRepeatPassword"
+                                                    placeholder="Pessoa Responsável" name="contato">
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Logradouro *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="logradouro" id="logradouro"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Número *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="numero" id="numero"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Bairro *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="bairro" id="bairro"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Município *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="municipio" id="municipio"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Estado *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="uf" id="uf"></div>
-                                    </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <input type="text" value="(75) xxxxx-xxxx"
+                                                    class="form-control form-control-user" name="telefone" id="telefone"
+                                                    placeholder="Digite um número de telefone" maxlength="15" />
 
-                                    <div class="column one"><input type="submit" value="Gravar"
-                                            class="btn btn-success"></div>
-                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                            </div>
+
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="input-group mb-3">
+                                                    <input value="40440140" class="form-control form-control-user"
+                                                        placeholder="Digete Apenas os números" type="text" id="cep"
+                                                        value="" size="10" maxlength="9" name="cep">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary btn-user" type="button"
+                                                            id="button-addon2" onclick="pesquisacep(cep.value)">Buscar
+                                                            Endereço</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input value="Rua Conselheiro Zacarias" id="rua" name="rua"
+                                                    class="form-control form-control-user"
+                                                    placeholder="rua, avenida, outros..." required="required"
+                                                    readonly="readonly" type="text">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input value="98A" type="text" class="form-control form-control-user"
+                                                    id="exampleRepeatPassword" placeholder="Número" name="numero"
+                                                    id="numero">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input value="" type="text" class="form-control form-control-user"
+                                                id="complemento" placeholder="Complemento do Endereço"
+                                                name="complemento">
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input value="Roma" id="bairro" name="bairro"
+                                                    class="form-control form-control-user" placeholder="bairro"
+                                                    required="required" readonly="readonly" type="text">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input value="Salvador" id="cidade" name="cidade"
+                                                    class="form-control form-control-user" placeholder="cidade"
+                                                    required="required" readonly="readonly" type="text">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <input id="estado" value="BA" name="estado"
+                                                    class="form-control form-control-user" placeholder="uf"
+                                                    required="required" readonly="readonly" type="text">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <input type="submit" value="GRAVAR ALTERAÇÕES" class="btn btn-primary">
+                                </form>
+
+                                <div class="wpcf7-response-output" aria-hidden="true"></div>
                                 </form>
                             </div>
                         </div>
                     </div>
 
-                </div>
-                <!-- /.container-fluid -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>          
+                    <!-- End of Main Content -->
 
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Script para Auto Complete CNPJ -->
-
-            <script>
-                // Função para consultar o CNPJ
-                function consultarCNPJ() {
-                    var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
-                    var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
-
-                    fetch(url)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Erro ao consultar CNPJ');
+                    <!-- Script para confirmações de dados -->
+                    <script>
+                        function limpa_formulario_cep() {
+                            //Limpa valores do formulário de cep.
+                            document.getElementById('rua').value=("");
+                            document.getElementById('bairro').value=("");
+                            document.getElementById('cidade').value=("");
+                            document.getElementById('estado').value=("");
+                        }
+                    
+                        function meu_callback(conteudo) {
+                            if (!("erro" in conteudo)) {
+                                //Atualiza os campos com os valores.
+                                document.getElementById('rua').value=(conteudo.logradouro);
+                                document.getElementById('bairro').value=(conteudo.bairro);
+                                document.getElementById('cidade').value=(conteudo.localidade);
+                                document.getElementById('estado').value=(conteudo.uf);
+                            } else {
+                                //CEP não Encontrado.
+                                limpa_formulario_cep();
+                                alert("CEP não encontrado.");
+                                document.getElementById('cep').value=("");
                             }
-                            return response.json();
-                        })
-                        .then(data => {
-                            preencherCampos(data);
-                        })
-                        .catch(error => {
-                            console.error('Erro:', error);
-                            alert('Erro ao consultar CNPJ');
-                        });
-                }
+                        }
+                    
+                        function pesquisacep(valor) {
+                            //Nova variável "cep" somente com dígitos.
+                            var cep = valor.replace(/\D/g, '');
+                    
+                            //Verifica se campo cep possui valor informado.
+                            if (cep !== "") {
+                    
+                                //Expressão regular para validar o CEP.
+                                var validacep = /^[0-9]{8}$/;
+                    
+                                //Valida o formato do CEP.
+                                if(validacep.test(cep)) {
+                    
+                                    //Preenche os campos com "..." enquanto consulta webservice.
+                                    document.getElementById('rua').value="...";
+                                    document.getElementById('bairro').value="...";
+                                    document.getElementById('cidade').value="...";
+                                    document.getElementById('estado').value="...";
+                    
+                                    //Cria um elemento javascript.
+                                    var script = document.createElement('script');
+                    
+                                    //Sincroniza com o callback.
+                                    script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+                    
+                                    //Insere script no documento e carrega o conteúdo.
+                                    document.body.appendChild(script);
+                    
+                                } else {
+                                    //cep é inválido.
+                                    limpa_formulario_cep();
+                                    alert("Formato de CEP inválido.");
+                                }
+                            } else {
+                                //cep sem valor, limpa formulário.
+                                limpa_formulario_cep();
+                            }
+                        }
+                    
+                        function formatar(mascara, documento){
+                            var cep = documento.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+                            var formatado = '';
+                    
+                            for (var i = 0, j = 0; i < mascara.length && j < cep.length; i++) {
+                                if (mascara.charAt(i) === '#') {
+                                    formatado += cep.charAt(j);
+                                    j++;
+                                } else {
+                                    formatado += mascara.charAt(i);
+                                }
+                            }
+                    
+                            documento.value = formatado;
+                        }
+                    
+                        function mascara(o,f){
+                            v_obj=o;
+                            v_fun=f;
+                            setTimeout(execmascara,1);
+                        }
+                    
+                        function execmascara(){
+                            v_obj.value=v_fun(v_obj.value);
+                        }
+                    
+                        function mtel(v){
+                            v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+                            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+                            v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+                            return v;
+                        }
+                    
+                        function id(el){
+                            return document.getElementById(el);
+                        }
+                    
+                        window.onload = function(){
+                            id('telefone').onkeyup = function(){
+                                mascara(this, mtel);
+                            };
+                    
+                            id('cep').oninput = function(){
+                                formatar('#####-###', this);
+                            };
+                        }
+                    </script>
 
-                // Função para preencher os campos do formulário
-                function preencherCampos(data) {
-                    document.getElementById('razao_social').value = data.razao_social || '';
-                    document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
-                    document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data
-                        .data_inicio_atividade) : '';
-                    document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data
-                        .ddd_telefone_1) : '';
-                    document.getElementById('email').value = data.email || '';
-                    document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
-                    document.getElementById('logradouro').value = data.logradouro || '';
-                    document.getElementById('numero').value = data.numero || '';
-                    document.getElementById('bairro').value = data.bairro || '';
-                    document.getElementById('municipio').value = data.municipio || '';
-                    document.getElementById('uf').value = data.uf || '';
-                    // Preencha os outros campos do formulário conforme necessário
-                }
+                    <!-- Fim do Script para confirmações de dados -->
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Ayslan Oliveira 2024</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+</div>
+ <!-- End of Page Wrapper -->
 
-                // Função para formatar a data
-                function formatarData(data) {
-                    var partes = data.split('-');
-                    return partes[2] + '/' + partes[1] + '/' + partes[0];
-                }
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-                // Função para formatar o CEP
-                function formatarCEP(cep) {
-                    return cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
-                }
-
-                // Função para formatar o CNPJ
-                function formatarCNPJ(cnpj) {
-                    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
-                }
-
-                // Função para formatar o telefone
-                function formatarTelefone(telefone) {
-                    if (telefone.length === 10) {
-                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone
-                            .substring(6);
-                    } else if (telefone.length === 11) {
-                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone
-                            .substring(7);
-                    } else {
-                        return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
-                    }
-                }
-
-                // Adicionando evento de input para o campo CNPJ
-                document.getElementById('cnpj').addEventListener('input', function () {
-                    var cnpj = this.value.replace(/[^\d]+/g, '');
-                    this.value = formatarCNPJ(cnpj);
-                });
-            </script>
-
-
-            <!-- Fim do Script para Auto Complete CNPJ -->
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Ayslan Oliveira 2024</span>
-                    </div>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão
-                            atual.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="login.html">Sair</a>
-                        </div>
-                    </div>
+                <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="login.html">Sair</a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/js/validacao-e-mascara.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
-            <!-- Page level plugins -->
-            <script src="vendor/chart.js/Chart.min.js"></script>
-
-            <!-- Page level custom scripts -->
+    <!-- Page level custom scripts -->
+    
 </body>
 
 </html>

@@ -88,8 +88,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operação:</h6>
-                        <a class="collapse-item" href="/empresacad.html">Cadastro de Empresa</a>
-                        <a class="collapse-item" href="/clientecad.html">Cadastro de Clientes</a>
+                        <a class="collapse-item" href="empresacad.html">Cadastro de Empresa</a>
+                        <a class="collapse-item" href="clientecad.html">Cadastro de Clientes</a>                        
                     </div>
                 </div>
             </li>
@@ -114,12 +114,12 @@
                         <h6 class="collapse-header">Operação:</h6>
                         <a class="collapse-item" href="#">Consultar Empresa</a>
                         <a class="collapse-item" href="#">Consultar Cliente</a>
-
+                       
                     </div>
                 </div>
-            </li>
+            </li>            
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Tables -->            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -130,7 +130,7 @@
             </div>
 
             <!-- Sidebar Message -->
-
+            
 
         </ul>
         <!-- End of Sidebar -->
@@ -150,7 +150,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-
+                
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -230,7 +230,7 @@
                             </div>
                         </li>-->
 
-                            <!-- Nav Item - Messages -->
+                        <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,19 +298,20 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>-->
 
-                            <!-- Nav Item - User Information -->
+                        <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayslan Oliveira</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="account.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                   Meus Dados
+                                  Meus Dados    
                                 </a>
                                 <a class="dropdown-item" href="acess.html">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -337,242 +338,263 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-
+                    
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Cadastro de Nova Empresa</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Dados de Acesso</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsiveee">
-                                <form action="#" method="post" >
-                                    <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa"
-                                        value="130">
+                            <div class="table-responsive">
+                                <form action="altera_acesso.php" method="post">
 
-                                    <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">CNPJ *</label>
-                                        <div class="col-sm-6">
-                                            <div class="input-group-append mb-2">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj"
-                                              id="cnpj" value size="8" maxlength="18">
-                                               <button class="btn btn-secondary btn-sm " type="button"
-                                                id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
-                                          </div>                                                                   
+                                    <div class="container-fluid">
+                                        <input type="hidden" name="cod_user" value="110">
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" value="ayslano37@gmail.com"
+                                                    placeholder="E-MAIL (usado no acesso ao sistema)" id="email"
+                                                    name="email" class="form-control form-control-user">
+
                                             </div>
-                                    </div>
 
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Razão Social </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="razao_social" id="razao_social" required></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Nome Fantasia </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="nome_fantasia" id="nome_fantasia"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Data de Abertura </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="data_abertura" id="data_abertura"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Número de Contato </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">E-mail </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="email" name="email" id="email"></div>
-                                    </div>
-
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">CEP </label>
-                                        <div class="col-sm-6">
-                                           <input class="form-control mr-sm-2 form-control-sm" 
-                                                    type="text" id="cep" value="" size="10" maxlength="9" name="cep">
-                                                <div class="input-group-append">
-                                                </div>                                            
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text"
+                                                    value="Ayslan"
+                                                    class="form-control form-control-user" id="nome"
+                                                    placeholder="Primeiro Nome" name="nome">
+                                            </div>
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" value="Oliveira" class="form-control form-control-user"
+                                                    id="sobrenome" placeholder="Último Nome" name="sobrenome">
+                                            </div>
                                         </div>
 
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Logradouro *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="logradouro" id="logradouro"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Número *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="numero" id="numero"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Bairro *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="bairro" id="bairro"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Município *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="municipio" id="municipio"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">Estado *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="uf" id="uf"></div>
-                                    </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><i
+                                                                class="fas fa-lock"></i></span>
+                                                    </div>
+                                                    <input name="senha_atual" type="password" value=""
+                                                        class="input form-control form-control-user" id="password"
+                                                        placeholder="senha atual" aria-label="password"
+                                                        aria-describedby="basic-addon1" required />
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" onclick="password_show_hide();">
+                                                            <i class="fas fa-eye" id="show_eye"></i>
+                                                            <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div class="column one"><input type="submit" value="Gravar"
-                                            class="btn btn-success"></div>
-                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2" id="small"> Quer trocar a senha?</label>
+                                            <div class="col-sm-8">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="customSwitch2" onclick="Mudarestado('minhaDiv')"
+                                                        name="switch">
+                                                    <label class="custom-control-label" for="customSwitch2"></label>
+                                                </div>
+                                            </DIV>
+                                        </DIV>
+
+                                        <div id="minhaDiv" style="display:none">
+
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1"><i
+                                                                    class="fas fa-lock"></i></span>
+                                                        </div>
+                                                        <input name="nova_senha" type="password"
+                                                            class="input form-control form-control-user" id="password2"
+                                                            placeholder="nova senha" aria-label="password2"
+                                                            aria-describedby="basic-addon1" />
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"
+                                                                onclick="password2_show_hide();">
+                                                                <i class="fas fa-eye" id="show_eye2"></i>
+                                                                <i class="fas fa-eye-slash d-none" id="hide_eye2"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1"><i
+                                                                    class="fas fa-lock"></i></span>
+                                                        </div>
+                                                        <input name="repete_senha" type="password"
+                                                            class="input form-control form-control-user" id="password3"
+                                                            placeholder="repita a nova senha" aria-label="password3"
+                                                            aria-describedby="basic-addon1" onBlur="validarSenha()" />
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"
+                                                                onclick="password3_show_hide();">
+                                                                <i class="fas fa-eye" id="show_eye3"></i>
+                                                                <i class="fas fa-eye-slash d-none" id="hide_eye3"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+                                    <input type="submit" value="GRAVAR ALTERAÇÕES" class="btn btn-primary">
                                 </form>
+
+                                <div class="wpcf7-response-output" aria-hidden="true"></div>
                             </div>
                         </div>
                     </div>
 
-                </div>
-                <!-- /.container-fluid -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>          
+                    <!-- End of Main Content -->
 
-            </div>
-            <!-- End of Main Content -->
+                    <!-- Script para confirmações de dados -->
+                    <script type="text/javascript">
 
-            <!-- Script para Auto Complete CNPJ -->
-
-            <script>
-                // Função para consultar o CNPJ
-                function consultarCNPJ() {
-                    var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
-                    var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
-
-                    fetch(url)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Erro ao consultar CNPJ');
+                        function password_show_hide() {
+                          var x = document.getElementById("password");
+                          var show_eye = document.getElementById("show_eye");
+                          var hide_eye = document.getElementById("hide_eye");
+                          hide_eye.classList.remove("d-none");
+                          if (x.type === "password") {
+                            x.type = "text";
+                            show_eye.style.display = "none";
+                            hide_eye.style.display = "block";
+                          } else {
+                            x.type = "password";
+                            show_eye.style.display = "block";
+                            hide_eye.style.display = "none";
+                            
+                          }
+                        }
+                        
+                        function password2_show_hide() {
+                            //alert ('2');
+                          var x = document.getElementById("password2");
+                          var show_eye2 = document.getElementById("show_eye2");
+                          var hide_eye2 = document.getElementById("hide_eye2");
+                          hide_eye2.classList.remove("d-none");
+                          if (x.type === "password") {
+                            x.type = "text";
+                            show_eye2.style.display = "none";
+                            hide_eye2.style.display = "block";
+                          } else {
+                            x.type = "password";
+                            show_eye2.style.display = "block";
+                            hide_eye2.style.display = "none";
+                            
+                          }
+                        }
+                        
+                        function password3_show_hide() {
+                            //alert ('2');
+                          var x = document.getElementById("password3");
+                          var show_eye3 = document.getElementById("show_eye3");
+                          var hide_eye3 = document.getElementById("hide_eye3");
+                          hide_eye3.classList.remove("d-none");
+                          if (x.type === "password") {
+                            x.type = "text";
+                            show_eye3.style.display = "none";
+                            hide_eye3.style.display = "block";
+                          } else {
+                            x.type = "password";
+                            show_eye3.style.display = "block";
+                            hide_eye3.style.display = "none";
+                            
+                          }
+                        }
+                        
+                        function validarSenha(){
+                           NovaSenha = document.getElementById('password2').value;
+                           CNovaSenha = document.getElementById('password3').value;
+                           if (NovaSenha != CNovaSenha) {
+                              alert("SENHAS DIFERENTES!\nFAVOR DIGITAR SENHAS IGUAIS"); 
+                           }
+                        }
+                        
+                        function Mudarestado(el) {
+                                var display = document.getElementById(el).style.display;
+                                if(display == "block")
+                                    document.getElementById(el).style.display = 'none';
+                                else
+                                    document.getElementById(el).style.display = 'block';
                             }
-                            return response.json();
-                        })
-                        .then(data => {
-                            preencherCampos(data);
-                        })
-                        .catch(error => {
-                            console.error('Erro:', error);
-                            alert('Erro ao consultar CNPJ');
-                        });
-                }
+                        </script>	
 
-                // Função para preencher os campos do formulário
-                function preencherCampos(data) {
-                    document.getElementById('razao_social').value = data.razao_social || '';
-                    document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
-                    document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data
-                        .data_inicio_atividade) : '';
-                    document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data
-                        .ddd_telefone_1) : '';
-                    document.getElementById('email').value = data.email || '';
-                    document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
-                    document.getElementById('logradouro').value = data.logradouro || '';
-                    document.getElementById('numero').value = data.numero || '';
-                    document.getElementById('bairro').value = data.bairro || '';
-                    document.getElementById('municipio').value = data.municipio || '';
-                    document.getElementById('uf').value = data.uf || '';
-                    // Preencha os outros campos do formulário conforme necessário
-                }
+                    <!-- Fim do Script para confirmações de dados -->
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Ayslan Oliveira 2024</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+</div>
+ <!-- End of Page Wrapper -->
 
-                // Função para formatar a data
-                function formatarData(data) {
-                    var partes = data.split('-');
-                    return partes[2] + '/' + partes[1] + '/' + partes[0];
-                }
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-                // Função para formatar o CEP
-                function formatarCEP(cep) {
-                    return cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
-                }
-
-                // Função para formatar o CNPJ
-                function formatarCNPJ(cnpj) {
-                    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
-                }
-
-                // Função para formatar o telefone
-                function formatarTelefone(telefone) {
-                    if (telefone.length === 10) {
-                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone
-                            .substring(6);
-                    } else if (telefone.length === 11) {
-                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone
-                            .substring(7);
-                    } else {
-                        return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
-                    }
-                }
-
-                // Adicionando evento de input para o campo CNPJ
-                document.getElementById('cnpj').addEventListener('input', function () {
-                    var cnpj = this.value.replace(/[^\d]+/g, '');
-                    this.value = formatarCNPJ(cnpj);
-                });
-            </script>
-
-
-            <!-- Fim do Script para Auto Complete CNPJ -->
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Ayslan Oliveira 2024</span>
-                    </div>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
-            <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão
-                            atual.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="login.html">Sair</a>
-                        </div>
-                    </div>
+                <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="login.html">Sair</a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/js/validacao-e-mascara.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
-            <!-- Page level plugins -->
-            <script src="vendor/chart.js/Chart.min.js"></script>
-
-            <!-- Page level custom scripts -->
+    <!-- Page level custom scripts -->
+    
 </body>
 
 </html>
