@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once "../site/php/conexao.php";
     
     // Prepare e execute a declaração de inserção
-    $sql = "INSERT INTO tabela_clientes (nome, nascimento, genero, cpf, rg, celular, email, cep)
+    $sql = "INSERT INTO cad_cliente (nome, nascimento, genero, cpf, rg, celular, email, cep)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     
     // Prepara a declaração SQL
