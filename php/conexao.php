@@ -1,14 +1,22 @@
 <?php
-use MongoDB\Driver\ServerApi;
-$uri = 'mongodb+srv://ayslano37:Walkingtonn1*@demolicao.fk6aapp.mongodb.net/?retryWrites=true&w=majority&appName=demolicao';
-// Set the version of the Stable API on the client
-$apiVersion = new ServerApi(ServerApi::V1);
-// Create a new client and connect to the server
-$client = new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
-try {
-    // Send a ping to confirm a successful connection
-    $client->selectDatabase('admin')->command(['ping' => 1]);
-    echo "Pinged your deployment. You successfully connected to MongoDB!\n";
-} catch (Exception $e) {
-    printf($e->getMessage());
+// Configurações do banco de dados
+$host = 'localhost'; // endereço do servidor MySQL
+$usuario = 'seu_usuario'; // nome de usuário do MySQL
+$senha = 'sua_senha'; // senha do MySQL
+$banco_de_dados = 'nome_do_banco_de_dados'; // nome do banco de dados a ser utilizado
+
+// Conexão com o banco de dados
+$conexao = new mysqli($host, $usuario, $senha, $banco_de_dados);
+
+// Verifica a conexão
+if ($conexao->connect_error) {
+    die("Erro de conexão: " . $conexao->connect_error);
+} else {
+    echo "Conexão bem-sucedida!";
 }
+
+// Fecha a conexão com o banco de dados quando não for mais necessário
+$conexao->close();
+?>
+
+
