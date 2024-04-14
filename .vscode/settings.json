@@ -2,4 +2,29 @@
     "php.validate.executablePath": "",
     "php.validate.enable": false,
     "liveServer.settings.port": 5501,
+    "symbols.hidesExplorerArrows": false,
+    "workbench.colorTheme": "Downpour Contrast (rainglow)",
+    "explorer.confirmDelete": false,
+    "redhat.telemetry.enabled": true,
+    "git.enableSmartCommit": true,
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.8,
+    "editor.rulers": [80, 120],
+    "editor.fontLigatures": true,
+    "workbench.editor.labelFormat": "short",
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "0xProto",
+    "[html]": 
+    
+    {
+        "editor.defaultFormatter": "HookyQR.beautify"
+        
+    },
+    "workbench.iconTheme": "icons"
+    
+    
 }
