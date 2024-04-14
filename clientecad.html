@@ -397,6 +397,16 @@
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
                                                 type="text" name="email" id="data_final"></div>
                                     </div>
+                                    <div class="form-group row top5">
+                                        <label class="col-sm-3 form-control-sm" id="small" for="empresa">REPRESENTANTE DA EMPRESA </label>
+                                        <div class="col-sm-6">
+                                            <select name="empresa" id="empresa" class="form-control form-control-sm" required>
+                                                <option value="">Selecione...</option>
+                                                <?php echo $options; ?>
+                                            </select>
+                                        </div>
+                                    </div>                                                                           
+                                    
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CEP *</label>
                                         <div class="col-sm-6">
@@ -454,55 +464,55 @@
                     <script>
                         function limpa_formulario_cep() {
                             //Limpa valores do formulário de cep.
-                            document.getElementById('rua').value=("");
-                            document.getElementById('bairro').value=("");
-                            document.getElementById('cidade').value=("");
-                            document.getElementById('estado').value=("");
+                            document.getElementById('rua').value = ("");
+                            document.getElementById('bairro').value = ("");
+                            document.getElementById('cidade').value = ("");
+                            document.getElementById('estado').value = ("");
                         }
-                    
+
                         function meu_callback(conteudo) {
                             if (!("erro" in conteudo)) {
                                 //Atualiza os campos com os valores.
-                                document.getElementById('rua').value=(conteudo.logradouro);
-                                document.getElementById('bairro').value=(conteudo.bairro);
-                                document.getElementById('cidade').value=(conteudo.localidade);
-                                document.getElementById('estado').value=(conteudo.uf);
+                                document.getElementById('rua').value = (conteudo.logradouro);
+                                document.getElementById('bairro').value = (conteudo.bairro);
+                                document.getElementById('cidade').value = (conteudo.localidade);
+                                document.getElementById('estado').value = (conteudo.uf);
                             } else {
                                 //CEP não Encontrado.
                                 limpa_formulario_cep();
                                 alert("CEP não encontrado.");
-                                document.getElementById('cep').value=("");
+                                document.getElementById('cep').value = ("");
                             }
                         }
-                    
+
                         function pesquisacep(valor) {
                             //Nova variável "cep" somente com dígitos.
                             var cep = valor.replace(/\D/g, '');
-                    
+
                             //Verifica se campo cep possui valor informado.
                             if (cep !== "") {
-                    
+
                                 //Expressão regular para validar o CEP.
                                 var validacep = /^[0-9]{8}$/;
-                    
+
                                 //Valida o formato do CEP.
-                                if(validacep.test(cep)) {
-                    
+                                if (validacep.test(cep)) {
+
                                     //Preenche os campos com "..." enquanto consulta webservice.
-                                    document.getElementById('rua').value="...";
-                                    document.getElementById('bairro').value="...";
-                                    document.getElementById('cidade').value="...";
-                                    document.getElementById('estado').value="...";
-                    
+                                    document.getElementById('rua').value = "...";
+                                    document.getElementById('bairro').value = "...";
+                                    document.getElementById('cidade').value = "...";
+                                    document.getElementById('estado').value = "...";
+
                                     //Cria um elemento javascript.
                                     var script = document.createElement('script');
-                    
+
                                     //Sincroniza com o callback.
-                                    script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-                    
+                                    script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
                                     //Insere script no documento e carrega o conteúdo.
                                     document.body.appendChild(script);
-                    
+
                                 } else {
                                     //cep é inválido.
                                     limpa_formulario_cep();
@@ -513,11 +523,11 @@
                                 limpa_formulario_cep();
                             }
                         }
-                    
-                        function formatar(mascara, documento){
+
+                        function formatar(mascara, documento) {
                             var cep = documento.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
                             var formatado = '';
-                    
+
                             for (var i = 0, j = 0; i < mascara.length && j < cep.length; i++) {
                                 if (mascara.charAt(i) === '#') {
                                     formatado += cep.charAt(j);
@@ -526,40 +536,57 @@
                                     formatado += mascara.charAt(i);
                                 }
                             }
-                    
+
                             documento.value = formatado;
                         }
-                    
-                        function mascara(o,f){
-                            v_obj=o;
-                            v_fun=f;
-                            setTimeout(execmascara,1);
+
+                        function mascara(o, f) {
+                            v_obj = o;
+                            v_fun = f;
+                            setTimeout(execmascara, 1);
                         }
-                    
-                        function execmascara(){
-                            v_obj.value=v_fun(v_obj.value);
+
+                        function execmascara() {
+                            v_obj.value = v_fun(v_obj.value);
                         }
-                    
-                        function mtel(v){
-                            v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
-                            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-                            v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+
+                        function mtel(v) {
+                            v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+                            v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+                            v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
                             return v;
                         }
-                    
-                        function id(el){
+
+                        function id(el) {
                             return document.getElementById(el);
                         }
-                    
-                        window.onload = function(){
-                            id('telefone').onkeyup = function(){
+
+                        window.onload = function () {
+                            id('telefone').onkeyup = function () {
                                 mascara(this, mtel);
                             };
-                    
-                            id('cep').oninput = function(){
+
+                            id('cep').oninput = function () {
                                 formatar('#####-###', this);
                             };
                         }
+                        $(document).ready(function () {
+                            $('#nome_empresa').on('input', function () {
+                                var nomeEmpresa = $(this).val();
+                                if (nomeEmpresa !== '') {
+                                    $.ajax({
+                                        url: 'buscar_empresas.php',
+                                        type: 'post',
+                                        data: { nome_empresa: nomeEmpresa },
+                                        success: function (response) {
+                                            $('#lista_empresas').html(response);
+                                        }
+                                    });
+                                } else {
+                                    $('#lista_empresas').html('');
+                                }
+                            });
+                        }); 
                     </script>
 
                     <!-- Fim do Script para confirmações de dados -->
@@ -608,6 +635,7 @@
     <script src="../site/js/validacao-e-mascara.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>

@@ -3,7 +3,7 @@
     "php.validate.enable": false,
     "liveServer.settings.port": 5501,
     "symbols.hidesExplorerArrows": false,
-    "workbench.colorTheme": "Downpour Contrast (rainglow)",
+    "workbench.colorTheme": "Monokai Dimmed",
     "explorer.confirmDelete": false,
     "redhat.telemetry.enabled": true,
     "git.enableSmartCommit": true,
@@ -21,7 +21,7 @@
     "[html]": 
     
     {
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "vscode.html-language-features"
         
     },
     "workbench.iconTheme": "icons"
