@@ -347,7 +347,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsiveee">
-                                <form action="../site/php/gravar_cliente.php" method="post" >
+                                <form action="../demolicao/php/gravar_cliente.php" method="post" >
                                     <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa"
                                         value="113">
 
@@ -400,9 +400,9 @@
                                     <div class="form-group row top5">
                                         <label class="col-sm-3 form-control-sm" id="small" for="empresa">REPRESENTANTE DA EMPRESA </label>
                                         <div class="col-sm-6">
-                                            <select name="empresa" id="empresa" class="form-control form-control-sm" required>
+                                            <select name="empresa" id="empresa" class="form-control form-control-sm">
                                                 <option value="">Selecione...</option>
-                                                <?php echo $options; ?>
+                                                    <?php echo $options; ?>
                                             </select>
                                         </div>
                                     </div>                                                                           
@@ -570,23 +570,7 @@
                                 formatar('#####-###', this);
                             };
                         }
-                        $(document).ready(function () {
-                            $('#nome_empresa').on('input', function () {
-                                var nomeEmpresa = $(this).val();
-                                if (nomeEmpresa !== '') {
-                                    $.ajax({
-                                        url: 'buscar_empresas.php',
-                                        type: 'post',
-                                        data: { nome_empresa: nomeEmpresa },
-                                        success: function (response) {
-                                            $('#lista_empresas').html(response);
-                                        }
-                                    });
-                                } else {
-                                    $('#lista_empresas').html('');
-                                }
-                            });
-                        }); 
+                       
                     </script>
 
                     <!-- Fim do Script para confirmações de dados -->
@@ -632,7 +616,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../site/js/validacao-e-mascara.js"></script>
+    <script src="../demolicao/js/validacao-e-mascara.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

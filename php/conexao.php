@@ -1,9 +1,9 @@
 <?php
 // Configurações do banco de dados
 $host = 'localhost'; // endereço do servidor MySQL
-$usuario = 'seu_usuario'; // nome de usuário do MySQL
-$senha = 'sua_senha'; // senha do MySQL
-$banco_de_dados = 'nome_do_banco_de_dados'; // nome do banco de dados a ser utilizado
+$usuario = 'Ayslan'; // nome de usuário do MySQL
+$senha = 'xlJ.44UFez3f2aMK'; // senha do MySQL
+$banco_de_dados = 'demolicao'; // nome do banco de dados a ser utilizado
 
 // Conexão com o banco de dados
 $conexao = new mysqli($host, $usuario, $senha, $banco_de_dados);
@@ -15,8 +15,7 @@ if ($conexao->connect_error) {
     echo "Conexão bem-sucedida!";
 }
 
-// Fecha a conexão com o banco de dados quando não for mais necessário
-$conexao->close();
+// Não é necessário fechar a conexão aqui, pois isso será feito automaticamente ao final do script
 ?>
 
 

@@ -3,7 +3,7 @@
     "php.validate.enable": false,
     "liveServer.settings.port": 5501,
     "symbols.hidesExplorerArrows": false,
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Monokai",
     "explorer.confirmDelete": false,
     "redhat.telemetry.enabled": true,
     "git.enableSmartCommit": true,
