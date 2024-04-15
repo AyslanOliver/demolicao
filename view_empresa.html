@@ -345,123 +345,60 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Empresas Cadastradas</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            </div>
+                           <div class="card-body">
+                                <div class="table-responsive">
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-12 col-sm-6">
+                                            <div class="dataTables_length" id="dataTables_length">
+                                                <label>
+                                                   Mostrar
+                                                    <select name="dataTables_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                                                        <option value="10">10</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                        <option value="100">100</option>
+                                                        <option value="150">150</option>
+                                                        <option value="200">200</option>
+                                                     </select>
+                                                     Entries
+                                                </label>
+                                            </div>
+                                        </div>
+                                    <div class=" col-sm-12 col-md-6">
+                                        <div id="dataTable_filter" class="dataTable_filter">
+                                            <label>
+                                                Buscar
+                                                <input type="search" class="form-control form-control-sm" placeholder aria-controls="dataTable">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+
+
                                     <thead>
-                                        <tr>
-                                            <th>CNPJ</th>
-                                            <th>Empresa</th>
-                                            <th>Razão Social</th>
-                                            <th>Representante da Empresa</th>
-                                            <th>Ramo</th>
-                                            <th>Data Cadastral</th>
-                                            <th>Mensalidade</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>CNPJ</th>
-                                            <th>Empresa</th>
-                                            <th>Razão Social</th>
-                                            <th>Representante da Empresa</th>
-                                            <th>Ramo</th>
-                                            <th>Data Cadastral</th>
-                                            <th>Mensalidade</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                                                           
+                                        <script>
+                                            fetch('../demolicao/php/view_empresa.php')
+                                              .then(response => response.text())
+                                              .then(data => {
+                                                document.getElementById('conteudo').innerHTML = data;
+                                              })
+                                              .catch(error => console.error('Ocorreu um erro:', error));
+                                            </script>
+                                            
+                                            <div id="conteudo"></div>
+                                                                                                                  
                                     </tbody>
-                                    <?php require '../demolicao/php/view_empresa.php'; ?>
+                                    <?php require '../php/view_empresa'; ?>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                    
+      
                 <!-- /.container-fluid -->
 
             </div>
@@ -477,16 +414,7 @@
             </footer>
 
 
-            <script>
-                fetch('../demolicao/php/view_empresa.php')
-                  .then(response => response.text())
-                  .then(data => {
-                    document.getElementById('conteudo').innerHTML = data;
-                  })
-                  .catch(error => console.error('Ocorreu um erro:', error));
-                </script>
-                
-                <div id="conteudo"></div>
+           
             <!-- End of Footer -->
 
         </div>
