@@ -1,20 +1,20 @@
 <?php
-// Conectar ao banco de dados
-require_once 'conexao.php'; 
-// Criar conexão
-$conn = new mysqli($servername, $username, $password, $database);
+// Incluir o arquivo de conexão
+require 'conexao.php';
 
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
+// Verificar se a conexão foi estabelecida com sucesso
+if ($conn === false) {
+    die("Erro de conexão: " . mysqli_connect_error());
 }
 
 // Query para selecionar todos os dados da tabela cad_empresa
 $sql = "SELECT cnpj, razao_social, nome_fantasia, data_abertura, ddd_telefone_1, email, cep, logradouro, numero, bairro, municipio, uf FROM cad_empresa";
+
+// Executar consulta
 $result = $conn->query($sql);
 
-// Verificar se há resultados e exibir na tabela HTML
-if ($result->num_rows > 0) {
+// Verificar se a consulta foi bem-sucedida
+if ($result) {
     // Exibir cabeçalho da tabela
     echo "<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
             <thead>
@@ -54,8 +54,9 @@ if ($result->num_rows > 0) {
     }
     echo "</tbody></table>";
 } else {
-    echo "0 resultados";
+    echo "Erro ao executar consulta: " . $conn->error;
 }
+
 // Fechar conexão
 $conn->close();
 ?>
