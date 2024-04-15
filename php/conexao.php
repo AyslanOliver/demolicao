@@ -17,5 +17,3 @@ if ($conexao->connect_error) {
 
 // Não é necessário fechar a conexão aqui, pois isso será feito automaticamente ao final do script
 ?>
-
-

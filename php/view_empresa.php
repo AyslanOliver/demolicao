@@ -30,24 +30,7 @@ if ($conn) {
     // Verificar se a consulta foi bem-sucedida
     if ($result) {
         // Exibir cabeçalho da tabela
-        echo "<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
-                <thead>
-                    <tr>
-                        <th>CNPJ</th>
-                        <th>Razão Social</th>
-                        <th>Nome Fantasia</th>
-                        <th>Data de Abertura</th>
-                        <th>Número de Contato</th>
-                        <th>E-mail</th>
-                        <th>CEP</th>
-                        <th>Logradouro</th>
-                        <th>Número</th>
-                        <th>Bairro</th>
-                        <th>Município</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>";
+               
 
         // Exibir os dados na tabela
         while ($row = $result->fetch_assoc()) {
