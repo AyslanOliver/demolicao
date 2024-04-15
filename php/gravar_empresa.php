@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Se já existir uma empresa com o mesmo CNPJ, exibir mensagem de erro
     if ($resultado->num_rows > 0) {
-        echo '<script>alert("Já existe uma empresa cadastrada com esse CNPJ!"); window.location.href = "index.html";</script>';
+        echo '<script>alert("Já existe uma empresa cadastrada com esse CNPJ!"); window.location.href = "../cad_empresa.html";</script>';
         exit; // Termina a execução do script para evitar a inserção de dados duplicados
     }
 

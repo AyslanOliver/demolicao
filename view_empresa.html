@@ -354,6 +354,7 @@
                                             <th>CNPJ</th>
                                             <th>Empresa</th>
                                             <th>Razão Social</th>
+                                            <th>Representante da Empresa</th>
                                             <th>Ramo</th>
                                             <th>Data Cadastral</th>
                                             <th>Mensalidade</th>
@@ -364,6 +365,7 @@
                                             <th>CNPJ</th>
                                             <th>Empresa</th>
                                             <th>Razão Social</th>
+                                            <th>Representante da Empresa</th>
                                             <th>Ramo</th>
                                             <th>Data Cadastral</th>
                                             <th>Mensalidade</th>
@@ -385,13 +387,6 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
                                             <td></td>
                                         </tr>
                                         <tr>
@@ -401,6 +396,7 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td></td>
@@ -409,15 +405,63 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
+                                            <td></td>
                                         </tr>
-                          
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                                                           
                                     </tbody>
+                                    <?php require '../demolicao/php/view_empresa.php'; ?>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                 </div>
+                    
                 <!-- /.container-fluid -->
 
             </div>
@@ -431,6 +475,18 @@
                     </div>
                 </div>
             </footer>
+
+
+            <script>
+                fetch('../demolicao/php/view_empresa.php')
+                  .then(response => response.text())
+                  .then(data => {
+                    document.getElementById('conteudo').innerHTML = data;
+                  })
+                  .catch(error => console.error('Ocorreu um erro:', error));
+                </script>
+                
+                <div id="conteudo"></div>
             <!-- End of Footer -->
 
         </div>
