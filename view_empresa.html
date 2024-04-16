@@ -347,56 +347,87 @@
                             <h6 class="m-0 font-weight-bold text-primary">Empresas Cadastradas</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <div id="dataTable_wrapper" class="dataTable_wrapper" dt-bootstrap4 no-footer>
+                                <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="dataTable"
+                                    type="button">
+                                    <span>Excel</span>
+                                </button>
+                                <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="dataTable"
+                                    type="button">
+                                    <span>PDF</span>
+                                </button>
+                            </div>
+                            <div class="dataTables_length" id="dataTables_length">
+                                <label>
+                                    Exibir
+                                    <select name="dataTables_length" aria-controls="dataTable"
+                                        class="custom-select custom-select-sm form-control form-control-sm">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    resultados por página
+                                </label>
+                            </div>
+                    
+                            <div id="dataTable_filter" class="dataTable_filter">
+                                <label>
+                                    Pesquisar
+                                    <input type="search" class="form-control form-control-sm" aria-placeholder-controls="dataTable">
+                                </label>
+                            </div>
+                    
+                            <table class="table table-bordered dataTable no-footer" id="dataTable"   width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100;">
                                     <thead>
                                         <tr>
-                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 180px;">CNPJ</th>
-                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 360px;">Razão Social</h>
+                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 11px;">ID</th>
+                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 45px;">CNPJ</th>
+                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 360px;">Razão Social</th>
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 186px;">Nome Fantasia</th>
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">Data de Abertura</th>
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 148px;">Telefone</th>
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 200px;">Municipio</th>
+                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">CEP</th>
                                         </tr>
                                     </thead>
-                             
+                    
                                     <tfoot>
-                                        <tr>
-                                            <th>CNPJ</th>
-                                            <th>Razão Social</th>
-                                            <th>Nome Fantasia</th>
-                                            <th>Data de Abertura</th>
-                                            <th>Telefone</th>
-                                            <th>Municipio</th>
-                                        </tr>
+                                      
                                     </tfoot>
-                                    <tbody>                                                                            
-                                        <tr>
-                                            <td>54.222.222/0001-54</td>
-                                            <td>VIRALDI COMERCIO DE PECAS LTDA - EPP</td>
-                                            <td>SANTANA DIESEL</td>
-                                            <td>20/12/2022</td>
-                                            <td>(11)12345-1234</td>
-                                            <td>Santo Antonio de Jesus</td>
-                                        </tr>
-                                        <!-- INICIO DO SCRIPT DE TABELA -->
-                                            <script>
-                                            fetch('../demolicao/php/view_empresa.php')
-                                              .then(response => response.text())
-                                              .then(data => {
-                                                document.getElementById('conteudo').innerHTML = data;
-                                              })
-                                              .catch(error => console.error('Ocorreu um erro:', error));
-                                              <div id="conteudo"></div>
-                                            </script>                    
-                                   <!-- fINALO DO SCRIPT DE TABELA -->
-                                    
+                    
+                                    <!-- Início do script de tabela -->
+                                    <script>
+                                        fetch('../demolicao/php/view_empresa.php')
+                                          .then(response => response.text())
+                                          .then(data => {
+                                            document.getElementById('conteudo').innerHTML = data;
+                                          })
+                                          .catch(error => console.error('Ocorreu um erro:', error));
+                                    </script>
+                                    <!-- Fim do script de tabela -->
+                    
+                                    <!-- Adicione um tbody vazio para ser preenchido pelo script -->
+                                    <tbody id="conteudo"></tbody>
                                 </table>
+                                <div class="dataTable_info" id="dataTable_info" role="status" aria-live="polite">
+                                    Mostrando de 1 até 10 
+                            </div>
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item active">
+                                        <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                    </li><li class="paginate_button page-item active">
+                                        <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                                    </li>
+                                    <li class="paginate_button page-item active">
+                                        <a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-                </div>
+                    
       
                 <!-- /.container-fluid -->
 

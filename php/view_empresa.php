@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obter os dados das empresas
-$sql = "SELECT cnpj, razao_social, nome_fantasia, data_abertura, telefone, municipio FROM cad_empresa";
+$sql = "SELECT id, cnpj, razao_social, nome_fantasia, data_abertura, ddd_telefone_1, municipio, cep FROM cad_empresa";
 $result = $conn->query($sql);
 
 // Verifica se há resultados
@@ -27,12 +27,14 @@ if ($result->num_rows > 0) {
     // Saída de dados de cada linha
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
         echo "<td>" . $row["cnpj"] . "</td>";
         echo "<td>" . $row["razao_social"] . "</td>";
         echo "<td>" . $row["nome_fantasia"] . "</td>";
         echo "<td>" . $row["data_abertura"] . "</td>";
-        echo "<td>" . $row["telefone"] . "</td>";
+        echo "<td>" . $row["ddd_telefone_1"] . "</td>";
         echo "<td>" . $row["municipio"] . "</td>";
+        echo "<td>" . $row["cep"] . "</td>";
         echo "</tr>";
     }
 
@@ -43,7 +45,7 @@ if ($result->num_rows > 0) {
 }
 
 // Verifica o resultado retornado pelo banco de dados
-var_dump($result);
+//var_dump($result);
 
 // Fecha a conexão
 $conn->close();

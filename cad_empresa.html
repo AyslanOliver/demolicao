@@ -518,9 +518,12 @@
                     var cnpj = this.value.replace(/[^\d]+/g, '');
                     this.value = formatarCNPJ(cnpj);
                 });
+                function formatarData(data) {
+                         var partes = data.split('/');
+                     return partes[2] + '-' + partes[1] + '-' + partes[0];  
+                }
+
             </script>
-
-
             <!-- Fim do Script para Auto Complete CNPJ -->
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
