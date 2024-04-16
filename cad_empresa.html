@@ -377,7 +377,7 @@
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Data de Abertura </label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="date" name="data_abertura" id="data_abertura"></div>
+                                                type="text" name="data_abertura" id="data_abertura"></div>
                                     </div>
 
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
@@ -470,10 +470,8 @@
                 function preencherCampos(data) {
                     document.getElementById('razao_social').value = data.razao_social || '';
                     document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
-                    document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data
-                        .data_inicio_atividade) : '';
-                    document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data
-                        .ddd_telefone_1) : '';
+                    document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data.data_inicio_atividade) : '';
+                    document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data.ddd_telefone_1) : '';
                     document.getElementById('email').value = data.email || '';
                     document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
                     document.getElementById('logradouro').value = data.logradouro || '';
@@ -485,7 +483,11 @@
                 }
 
                 // Função para formatar a data
-              
+                function formatarData(data) {
+                     var partes = data.split('-');
+                 return partes[2] + '/' + partes[1] + '/' + partes[0];
+                }
+
 
                 // Função para formatar o CEP
                 function formatarCEP(cep) {
@@ -515,10 +517,7 @@
                     var cnpj = this.value.replace(/[^\d]+/g, '');
                     this.value = formatarCNPJ(cnpj);
                 });
-                function formatarData(data) {
-                         var partes = data.split('/');
-                     return partes[2] + '-' + partes[1] + '-' + partes[0];  
-                }
+          
 
             </script>
             <!-- Fim do Script para Auto Complete CNPJ -->
@@ -571,6 +570,7 @@
 
             <!-- Page level plugins -->
             <script src="vendor/chart.js/Chart.min.js"></script>
+            <script src="https://cdn.datatables.net/2.0.4/js/dataTables.min.js"></script>
 
             <!-- Page level custom scripts -->
 </body>
