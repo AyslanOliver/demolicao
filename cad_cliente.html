@@ -397,14 +397,44 @@
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
                                                 type="text" name="email" id="data_final"></div>
                                     </div>
-                                    <div class="form-group row top5">
-                                        <label class="col-sm-3 form-control-sm" id="small" for="empresa">REPRESENTANTE DA EMPRESA </label>
-                                        <div class="col-sm-6">
-                                           
-                                            </select>
+                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
+                                        for="inlineFormCustomSelect">REPRESENTANTE DA EMPRESA*</label>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row top5">
+                                            <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Representante da Empresa *</label>
+                                            <div class="col-sm-6">
+                                                <select name="empresa" id="empresa" class="form-control form-control-sm" required>
+                                                    <option value="">SELECIONE...</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>                                                                           
                                     
+                                        <!-- Incluir jQuery (você pode baixar localmente ou usar um CDN) -->
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                                    
+                                        <script>
+                                            $(document).ready(function () {
+                                                // Fazer requisição AJAX para buscar os nomes das empresas
+                                                $.ajax({
+                                                    url: 'buscar_empresas.php',
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                    success: function (data) {
+                                                        // Preencher o select com os nomes das empresas retornados
+                                                        var select = $('#empresa');
+                                                        $.each(data, function (key, value) {
+                                                            select.append('<option value="' + value + '">' + value + '</option>');
+                                                        });
+                                    
+                                                        // Adicionar funcionalidade de pesquisa
+                                                        select.select2();
+                                                    },
+                                                    error: function (xhr, status, error) {
+                                                        console.error(status + ': ' + error);
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CEP *</label>
                                         <div class="col-sm-6">

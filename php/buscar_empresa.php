@@ -1,29 +1,24 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Incluir o arquivo de conexão com o banco de dados
+// Incluir arquivo de conexão com o banco de dados
 include 'conexao.php';
 
-$options = '';
-
-// Consulta SQL para buscar os nomes das empresas
-$sql = "SELECT razao_social FROM  cad_empresa";
+// Consulta SQL para obter os nomes das empresas
+$sql = "SELECT nome_empresa FROM empresas";
 $result = $conn->query($sql);
 
-// Preenche as opções do menu suspenso com os nomes das empresas
+// Inicializar um array para armazenar os nomes das empresas
+$empresas = array();
+
+// Preencher o array com os nomes das empresas
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $options .= '<option value="' . $row["razao_social"] . '">' . $row["razao_social"] . '</option>';
+    while ($row = $result->fetch_assoc()) {
+        $empresas[] = $row["nome_empresa"];
     }
-} else {
-    $options = '<option value="">Nenhuma empresa encontrada</option>';
 }
 
-// Fechar a conexão com o banco de dados
-$conn->close();
+// Enviar os nomes das empresas como resposta em formato JSON
+echo json_encode($empresas);
 
-// Retornar as opções do menu suspenso
-echo $options;
+// Fechar conexão com o banco de dados
+$conn->close();
 ?>
