@@ -13,9 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   <!-- Incluir jQuery (você pode baixar localmente ou usar um CDN) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -398,43 +398,14 @@
                                                 type="text" name="email" id="data_final"></div>
                                     </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">REPRESENTANTE DA EMPRESA*</label>
+                                        for="inlineFormCustomSelect">RESPONSAVEL PELA EMPRESA*</label>
                                     <div class="col-sm-6">
-                                        <div class="form-group row top5">
-                                            <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Representante da Empresa *</label>
-                                            <div class="col-sm-6">
-                                                <select name="empresa" id="empresa" class="form-control form-control-sm" required>
+                                              <select name="razao_social" id="razao_social" class="form-control form-control-sm" required>
                                                     <option value="">SELECIONE...</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                    
-                                        <!-- Incluir jQuery (você pode baixar localmente ou usar um CDN) -->
-                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                                    
-                                        <script>
-                                            $(document).ready(function () {
-                                                // Fazer requisição AJAX para buscar os nomes das empresas
-                                                $.ajax({
-                                                    url: 'buscar_empresas.php',
-                                                    type: 'GET',
-                                                    dataType: 'json',
-                                                    success: function (data) {
-                                                        // Preencher o select com os nomes das empresas retornados
-                                                        var select = $('#empresa');
-                                                        $.each(data, function (key, value) {
-                                                            select.append('<option value="' + value + '">' + value + '</option>');
-                                                        });
-                                    
-                                                        // Adicionar funcionalidade de pesquisa
-                                                        select.select2();
-                                                    },
-                                                    error: function (xhr, status, error) {
-                                                        console.error(status + ': ' + error);
-                                                    }
-                                                });
-                                            });
-                                        </script>
+                                        </div>                                                                                                             
+                                       
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CEP *</label>
                                         <div class="col-sm-6">
@@ -598,7 +569,7 @@
                                 formatar('#####-###', this);
                             };
                         }
-                       
+                      
                     </script>
 
                     <!-- Fim do Script para confirmações de dados -->
@@ -642,18 +613,20 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="../demolicao/js/validacao-e-mascara.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 
 </html>
