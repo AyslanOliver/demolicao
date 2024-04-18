@@ -417,14 +417,13 @@
                                                     type="text" name="id" id="id" required></div>
                                         </div>
 
-                                        <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">CNPJ *</label>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">CNPJ *</label>
                                             <div class="col-sm-6">
                                                 <div class="input-group-append mb-2">
-                                                    <input class="form-control mr-sm-2 form-control-sm" type="text"
-                                                        name="cnpj" id="cnpj" value size="8" maxlength="18">
-                                                    <button class="btn btn-secondary btn-sm " type="button"
-                                                        id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
-                                                </div>
+                                                    <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" size="8" maxlength="18" oninput="formatarCNPJ(this)">
+                                                    <button class="btn btn-secondary btn-sm" type="button" id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
+                                                </div>                                              
                                             </div>
                                         </div>
 
@@ -461,39 +460,33 @@
             </div>
                 <!-- Script para confirmações de dados -->
                 <script>
+                  function formatarCNPJ(campo) {
+        // Remove todos os caracteres que não são dígitos
+        var cnpj = campo.value.replace(/\D/g, '');
 
-                    function formatar(mascara, documento) {
-                        var cep = documento.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
-                        var formatado = '';
+        // Formata o CNPJ
+        if (cnpj.length <= 14) {
+            cnpj = cnpj.replace(/(\d{2})(\d)/, "$1.$2");
+            cnpj = cnpj.replace(/(\d{3})(\d)/, "$1.$2");
+            cnpj = cnpj.replace(/(\d{3})(\d)/, "$1/$2");
+            cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2");
+            campo.value = cnpj;
+        } else {
+            campo.value = cnpj.slice(0, 14); // Limita o CNPJ a 14 caracteres
+        }
+    }
 
-                        for (var i = 0, j = 0; i < mascara.length && j < cep.length; i++) {
-                            if (mascara.charAt(i) === '#') {
-                                formatado += cep.charAt(j);
-                                j++;
-                            } else {
-                                formatado += mascara.charAt(i);
-                            }
-                        }
-
-                        documento.value = formatado;
-                    }
-
-                    function mascara(o, f) {
-                        v_obj = o;
-                        v_fun = f;
-                        setTimeout(execmascara, 1);
-                    }
-
-                    function execmascara() {
-                        v_obj.value = v_fun(v_obj.value);
-                    }
-
+    function consultarCNPJ() {
+        // Adicione aqui a lógica para consultar o CNPJ
+    }
+                                             
                     function mtel(v) {
                         v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
                         v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
                         v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
                         return v;
                     }
+                   
 
                     function Mudarestado(el) {
                         var display = document.getElementById(el).style.display;
