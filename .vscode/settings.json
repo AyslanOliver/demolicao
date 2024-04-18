@@ -12,7 +12,6 @@
     "files.autoSave": "afterDelay",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.8,
-    "editor.rulers": [80, 120],
     "editor.fontLigatures": true,
     "workbench.editor.labelFormat": "short",
     "breadcrumbs.enabled": false,

@@ -13,9 +13,11 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-   <!-- Incluir jQuery (você pode baixar localmente ou usar um CDN) -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- Incluir jQuery (você pode baixar localmente ou usar um CDN) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -89,7 +91,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operação:</h6>
                         <a class="collapse-item" href="../demolicao/cad_empresa.html">Cadastro de Empresa</a>
-                        <a class="collapse-item" href="../demolicao/cad_cliente.html">Cadastro de Clientes</a>                        
+                        <a class="collapse-item" href="../demolicao/cad_cliente.html">Cadastro de Clientes</a>
                     </div>
                 </div>
             </li>
@@ -114,12 +116,12 @@
                         <h6 class="collapse-header">Operação:</h6>
                         <a class="collapse-item" href="#">Consultar Empresa</a>
                         <a class="collapse-item" href="#">Consultar Cliente</a>
-                       
+
                     </div>
                 </div>
-            </li>            
+            </li>
 
-            <!-- Nav Item - Tables -->            
+            <!-- Nav Item - Tables -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -130,7 +132,7 @@
             </div>
 
             <!-- Sidebar Message -->
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -150,7 +152,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -230,7 +232,7 @@
                             </div>
                         </li>-->
 
-                        <!-- Nav Item - Messages -->
+                            <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -298,20 +300,19 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>-->
 
-                        <!-- Nav Item - User Information -->
+                            <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayslan Oliveira</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="account.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  Meu Dados
+                                    Meu Dados
                                 </a>
                                 <a class="dropdown-item" href="acess.html">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -338,7 +339,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
+
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -347,7 +348,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsiveee">
-                                <form action="../demolicao/php/gravar_cliente.php" method="post" >
+                                <form action="../demolicao/php/gravar_cliente.php" method="post">
                                     <input class="form-control mr-sm-2 form-control-sm" type="hidden" name="id_empresa"
                                         value="113">
 
@@ -355,7 +356,7 @@
                                             for="inlineFormCustomSelect">NOME DO CLIENTE * (max. 29 caracteres)</label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
                                                 type="text" name="nome" maxlength="29" id="data_final" required></div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">DATA DE NASCIMENTO *</label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
@@ -397,235 +398,169 @@
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
                                                 type="text" name="email" id="data_final"></div>
                                     </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                        for="inlineFormCustomSelect">RESPONSAVEL PELA EMPRESA*</label>
-                                    <div class="col-sm-6">
-                                              <select name="razao_social" id="razao_social" class="form-control form-control-sm" required>
-                                                    <option value="">SELECIONE...</option>
-                                                </select>
-                                            </div>
-                                        </div>                                                                                                             
-                                       
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">CEP *</label>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3" id="small"> REPRESENTANTE DE EMPRESA?</label>
                                         <div class="col-sm-6">
-                                            <div class="input-group mb-3"><input
-                                                    class="form-control mr-sm-2 form-control-sm"
-                                                    placeholder="Digite Apenas os números" type="text" id="cep" value=""
-                                                    size="10" maxlength="9" name="cep">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-primary btn-sm" type="button"
-                                                        id="button-addon2" onkeyup="formatar('#####-###', this)" onclick="pesquisacep(cep.value)">Buscar
-                                                        Endereço</button></div>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch2"
+                                                    onclick="Mudarestado('minhaDiv')" name="switch">
+                                                <label class="custom-control-label" for="customSwitch2"></label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">ENDERECO</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="endereco" id="rua"></div>
+
+                                    <div id="minhaDiv" style="display:none">
+
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
+                                                id="small" for="inlineFormCustomSelect">ID </label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                    type="text" name="id" id="id" required></div>
+                                        </div>
+
+                                        <div class="form-group row"><label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">CNPJ *</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group-append mb-2">
+                                                    <input class="form-control mr-sm-2 form-control-sm" type="text"
+                                                        name="cnpj" id="cnpj" value size="8" maxlength="18">
+                                                    <button class="btn btn-secondary btn-sm " type="button"
+                                                        id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
+                                                id="small" for="inlineFormCustomSelect">Razão Social </label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                    type="text" name="razao_social" id="razao_social" required></div>
+                                        </div>
+
+                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
+                                                id="small" for="inlineFormCustomSelect">Nome Fantasia </label>
+                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                                    type="text" name="nome_fantasia" id="nome_fantasia"></div>
+                                        </div>
+
+
                                     </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">NUMERO *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="numero" id="numero"></div>
+
+
+
+
+                                    <div class="column one"><input type="submit" value="GRAVAR" class="btn btn-success">
                                     </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">BAIRRO</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="bairro" id="bairro"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">CIDADE</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="cidade" id="cidade"></div>
-                                    </div>
-                                    <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
-                                            for="inlineFormCustomSelect">ESTADO</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="estado" id="estado"></div>
-                                    </div>                              
-                                    
-                                    <div class="column one"><input type="submit" value="GRAVAR"
-                                            class="btn btn-success"></div>
                                     <div class="wpcf7-response-output" aria-hidden="true"></div>
                                 </form>
                             </div>
                         </div>
                     </div>
 
+                </div>
+                <!-- /.container-fluid -->
+
+                <!-- End of Main Content -->
+
+                <!-- Script para confirmações de dados -->
+                <script>
+
+                    function formatar(mascara, documento) {
+                        var cep = documento.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
+                        var formatado = '';
+
+                        for (var i = 0, j = 0; i < mascara.length && j < cep.length; i++) {
+                            if (mascara.charAt(i) === '#') {
+                                formatado += cep.charAt(j);
+                                j++;
+                            } else {
+                                formatado += mascara.charAt(i);
+                            }
+                        }
+
+                        documento.value = formatado;
+                    }
+
+                    function mascara(o, f) {
+                        v_obj = o;
+                        v_fun = f;
+                        setTimeout(execmascara, 1);
+                    }
+
+                    function execmascara() {
+                        v_obj.value = v_fun(v_obj.value);
+                    }
+
+                    function mtel(v) {
+                        v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+                        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+                        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+                        return v;
+                    }
+
+                    function Mudarestado(el) {
+                        var display = document.getElementById(el).style.display;
+                        if (display == "block")
+                            document.getElementById(el).style.display = 'none';
+                        else
+                            document.getElementById(el).style.display = 'block';
+                    }
+
+
+                </script>
+
+                <!-- Fim do Script para confirmações de dados -->
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Ayslan Oliveira 2024</span>
+                        </div>
                     </div>
-                    <!-- /.container-fluid -->
-                                        
-                    <!-- End of Main Content -->
+                </footer>
+                <!-- End of Footer -->
+                <!-- End of Page Wrapper -->
 
-                    <!-- Script para confirmações de dados -->
-                    <script>
-                        function limpa_formulario_cep() {
-                            //Limpa valores do formulário de cep.
-                            document.getElementById('rua').value = ("");
-                            document.getElementById('bairro').value = ("");
-                            document.getElementById('cidade').value = ("");
-                            document.getElementById('estado').value = ("");
-                        }
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-                        function meu_callback(conteudo) {
-                            if (!("erro" in conteudo)) {
-                                //Atualiza os campos com os valores.
-                                document.getElementById('rua').value = (conteudo.logradouro);
-                                document.getElementById('bairro').value = (conteudo.bairro);
-                                document.getElementById('cidade').value = (conteudo.localidade);
-                                document.getElementById('estado').value = (conteudo.uf);
-                            } else {
-                                //CEP não Encontrado.
-                                limpa_formulario_cep();
-                                alert("CEP não encontrado.");
-                                document.getElementById('cep').value = ("");
-                            }
-                        }
-
-                        function pesquisacep(valor) {
-                            //Nova variável "cep" somente com dígitos.
-                            var cep = valor.replace(/\D/g, '');
-
-                            //Verifica se campo cep possui valor informado.
-                            if (cep !== "") {
-
-                                //Expressão regular para validar o CEP.
-                                var validacep = /^[0-9]{8}$/;
-
-                                //Valida o formato do CEP.
-                                if (validacep.test(cep)) {
-
-                                    //Preenche os campos com "..." enquanto consulta webservice.
-                                    document.getElementById('rua').value = "...";
-                                    document.getElementById('bairro').value = "...";
-                                    document.getElementById('cidade').value = "...";
-                                    document.getElementById('estado').value = "...";
-
-                                    //Cria um elemento javascript.
-                                    var script = document.createElement('script');
-
-                                    //Sincroniza com o callback.
-                                    script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                                    //Insere script no documento e carrega o conteúdo.
-                                    document.body.appendChild(script);
-
-                                } else {
-                                    //cep é inválido.
-                                    limpa_formulario_cep();
-                                    alert("Formato de CEP inválido.");
-                                }
-                            } else {
-                                //cep sem valor, limpa formulário.
-                                limpa_formulario_cep();
-                            }
-                        }
-
-                        function formatar(mascara, documento) {
-                            var cep = documento.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
-                            var formatado = '';
-
-                            for (var i = 0, j = 0; i < mascara.length && j < cep.length; i++) {
-                                if (mascara.charAt(i) === '#') {
-                                    formatado += cep.charAt(j);
-                                    j++;
-                                } else {
-                                    formatado += mascara.charAt(i);
-                                }
-                            }
-
-                            documento.value = formatado;
-                        }
-
-                        function mascara(o, f) {
-                            v_obj = o;
-                            v_fun = f;
-                            setTimeout(execmascara, 1);
-                        }
-
-                        function execmascara() {
-                            v_obj.value = v_fun(v_obj.value);
-                        }
-
-                        function mtel(v) {
-                            v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
-                            v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-                            v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
-                            return v;
-                        }
-
-                        function id(el) {
-                            return document.getElementById(el);
-                        }
-
-                        window.onload = function () {
-                            id('telefone').onkeyup = function () {
-                                mascara(this, mtel);
-                            };
-
-                            id('cep').oninput = function () {
-                                formatar('#####-###', this);
-                            };
-                        }
-                      
-                    </script>
-
-                    <!-- Fim do Script para confirmações de dados -->
-<!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Ayslan Oliveira 2024</span>
-        </div>
-    </div>
-</footer>
-<!-- End of Footer -->
- <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Pronto para partir?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão
+                                atual.</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-primary" href="login.html">Sair</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Sair</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../demolicao/js/validacao-e-mascara.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-    
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="../demolicao/js/validacao-e-mascara.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <!-- Page level plugins -->
+                <script src="vendor/chart.js/Chart.min.js"></script>
+
+                <!-- Page level custom scripts -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 
