@@ -457,65 +457,52 @@
             </div>
                 <!-- Script para confirmações de dados -->
                 <script>
-                  function formatarCNPJ(campo) {
-                  // Remove todos os caracteres que não são dígitos
-                 var cnpj = campo.value.replace(/\D/g, '');
-
-        // Formata o CNPJ
-        if (cnpj.length <= 14) {
-            cnpj = cnpj.replace(/(\d{2})(\d)/, "$1.$2");
-            cnpj = cnpj.replace(/(\d{3})(\d)/, "$1.$2");
-            cnpj = cnpj.replace(/(\d{3})(\d)/, "$1/$2");
-            cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2");
-            campo.value = cnpj;
-        } else {
-            campo.value = cnpj.slice(0, 14); // Limita o CNPJ a 14 caracteres
-        }
-    }
-
-   // Função para realizar a consulta ao CNPJ
-   function consultarCNPJ() {
-        var cnpj = document.getElementById("cnpj").value;
-        // Requisição AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", ".view_emp_vinculo.php?cnpj=" + cnpj, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Processar a resposta
-                var response = xhr.responseText;
-                if (response != "") {
-                    // Se houver uma resposta válida, preencher os campos
-                    var data = JSON.parse(response);
-                    document.getElementById("razao_social").value = data.razao_social;
-                    document.getElementById("nome_fantasia").value = data.nome_fantasia;
-                } else {
-                    // Se não houver resposta, limpar os campos
-                    document.getElementById("razao_social").value = "";
-                    document.getElementById("nome_fantasia").value = "";
-                }
-            }
-        };
-        xhr.send();
-    }
-                                             
-                    function mtel(v) {
-                        v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
-                        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-                        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
-                        return v;
+                    function formatarCNPJ(campo) {
+                        // Remove todos os caracteres que não são dígitos
+                        var cnpj = campo.value.replace(/\D/g, '');
+            
+                        // Formata o CNPJ
+                        if (cnpj.length <= 14) {
+                            cnpj = cnpj.replace(/(\d{2})(\d)/, "$1.$2");
+                            cnpj = cnpj.replace(/(\d{3})(\d)/, "$1.$2");
+                            cnpj = cnpj.replace(/(\d{3})(\d)/, "$1/$2");
+                            cnpj = cnpj.replace(/(\d{4})(\d)/, "$1-$2");
+                            campo.value = cnpj;
+                        } else {
+                            campo.value = cnpj.slice(0, 14); // Limita o CNPJ a 14 caracteres
+                        }
                     }
-                   
-
-                    function Mudarestado(el) {
-                        var display = document.getElementById(el).style.display;
-                        if (display == "block")
-                            document.getElementById(el).style.display = 'none';
-                        else
-                            document.getElementById(el).style.display = 'block';
+            
+                    // Função para realizar a consulta ao CNPJ
+                    function consultarCNPJ() {
+                        var cnpj = document.getElementById("cnpj").value;
+            
+                        // Requisição AJAX
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function() {
+                            if (xhr.readyState == 4) {
+                                if (xhr.status == 200) {
+                                    // Processar a resposta
+                                    var response = xhr.responseText;
+                                    if (response != "") {
+                                        // Se houver uma resposta válida, preencher os campos
+                                        var data = JSON.parse(response);
+                                        document.getElementById("razao_social").value = data.razao_social;
+                                        document.getElementById("nome_fantasia").value = data.nome_fantasia;
+                                    } else {
+                                        // Se não houver resposta, limpar os campos
+                                        document.getElementById("razao_social").value = "";
+                                        document.getElementById("nome_fantasia").value = "";
+                                    }
+                                } else {
+                                    // Tratar erro na requisição
+                                    console.error('Erro na requisição: ' + xhr.status);
+                                }
+                            }
+                        };
+                        xhr.open("GET", "consulta_cnpj.php?cnpj=" + cnpj, true);
+                        xhr.send();
                     }
-
-                        
-
                 </script>
 
                 <!-- Fim do Script para confirmações de dados -->
@@ -575,5 +562,8 @@
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
-
+<input type="text" id="cnpj" onkeyup="formatarCNPJ(this)" placeholder="Digite o CNPJ">
+    <button onclick="consultarCNPJ()">Consultar</button><br><br>
+    Razão Social: <input type="text" id="razao_social" readonly><br><br>
+    Nome Fantasia: <input type="text" id="nome_fantasia" readonly><br><br>
 </html>
