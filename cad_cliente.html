@@ -413,7 +413,7 @@
 
                                         <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
                                                 id="small" for="inlineFormCustomSelect">ID </label>
-                                            <div class="col-sm-6"><input class= "mr-sm- form-control-sm"
+                                            <div class="col-sm-6"><input class= "mr-sm form-control-sm"
                                                     type="text" name="id" id="id" required></div>
                                         </div>
 
@@ -422,24 +422,24 @@
                                             <div class="col-sm-6">
                                                 <div class="input-group-append mb-2">
                                                     <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" size="8" maxlength="18" oninput="formatarCNPJ(this)">
-                                                    <button class="btn btn-secondary btn-sm" type="button" id="button-addon2" onclick="consultarCNPJ()">Consultar</button>
+                                                    <button class="btn btn-secondary btn-sm" type="button" id="button-addon2">Consultar</button>
                                                 </div>                                              
                                             </div>
                                         </div>
-
-                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
-                                                id="small" for="inlineFormCustomSelect">Razão Social </label>
-                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                    type="text" name="razao_social" id="razao_social" required></div>
+                                        
+                                        <div class="form-group row top5">
+                                            <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Razão Social</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="razao_social" id="razao_social" required>
+                                            </div>
                                         </div>
-
-                                        <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
-                                                id="small" for="inlineFormCustomSelect">Nome Fantasia </label>
-                                            <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                    type="text" name="nome_fantasia" id="nome_fantasia"></div>
+                                        
+                                        <div class="form-group row top5">
+                                            <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Nome Fantasia</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="nome_fantasia" id="nome_fantasia">
+                                            </div>
                                         </div>
-
-
                                     </div>
 
 
@@ -461,8 +461,8 @@
                 <!-- Script para confirmações de dados -->
                 <script>
                   function formatarCNPJ(campo) {
-        // Remove todos os caracteres que não são dígitos
-        var cnpj = campo.value.replace(/\D/g, '');
+                  // Remove todos os caracteres que não são dígitos
+                 var cnpj = campo.value.replace(/\D/g, '');
 
         // Formata o CNPJ
         if (cnpj.length <= 14) {
@@ -476,8 +476,29 @@
         }
     }
 
-    function consultarCNPJ() {
-        // Adicione aqui a lógica para consultar o CNPJ
+   // Função para realizar a consulta ao CNPJ
+   function consultarCNPJ() {
+        var cnpj = document.getElementById("cnpj").value;
+        // Requisição AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", ".view_emp_vinculo.php?cnpj=" + cnpj, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Processar a resposta
+                var response = xhr.responseText;
+                if (response != "") {
+                    // Se houver uma resposta válida, preencher os campos
+                    var data = JSON.parse(response);
+                    document.getElementById("razao_social").value = data.razao_social;
+                    document.getElementById("nome_fantasia").value = data.nome_fantasia;
+                } else {
+                    // Se não houver resposta, limpar os campos
+                    document.getElementById("razao_social").value = "";
+                    document.getElementById("nome_fantasia").value = "";
+                }
+            }
+        };
+        xhr.send();
     }
                                              
                     function mtel(v) {
@@ -496,6 +517,7 @@
                             document.getElementById(el).style.display = 'block';
                     }
 
+                        
 
                 </script>
 
