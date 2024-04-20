@@ -39,17 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['rg'],
         $_POST['celular'],
         $_POST['email'],
-        
-   
+          
     );
 
     // Executa a declaração
     if ($stmt->execute()) {
         // Popup de sucesso e redirecionamento
-        echo '<script>alert("Dados gravados com sucesso!"); window.location.href = "../index.html";</script>';
+        echo '<script>alert("Dados gravados com sucesso!"); window.location.href = "../dashboard.html";</script>';
     } else {
         // Popup de erro e redirecionamento
-        echo '<script>alert("Erro ao gravar dados: ' . $stmt->error . '"); window.location.href = "index.html";</script>';
+        echo '<script>alert("Erro ao gravar dados: ' . $stmt->error . '"); window.location.href = "cad_cliente.html";</script>';
     }
 
     // Fecha a declaração
