@@ -1,6 +1,6 @@
 <?php
 // Arquivo de conexão com o banco de dados
-include 'conexao.php';
+require_once 'conexao.php';
 
 // CNPJ a ser pesquisado
 $cnpj = $_GET['cnpj'];
@@ -10,10 +10,17 @@ $sql = "SELECT ID, razao_social, nome_fantasia FROM cad_empresa WHERE cnpj = ?";
 
 // Preparar a declaração
 $stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    die("Erro na preparação da consulta: " . $conn->error);
+}
+
 $stmt->bind_param("s", $cnpj);
 
 // Executar a consulta
-$stmt->execute();
+if (!$stmt->execute()) {
+    die("Erro ao executar a consulta: " . $stmt->error);
+}
 
 // Vincular as variáveis de resultado
 $stmt->bind_result($ID, $razao_social, $nome_fantasia);

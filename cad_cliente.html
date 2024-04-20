@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-house-user"></i>
                 </div>
@@ -45,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="dashboard.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Controle de Clientes</span></a>
             </li>
@@ -90,8 +90,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operação:</h6>
-                        <a class="collapse-item" href="../demolicao/cad_empresa.html">Cadastro de Empresa</a>
-                        <a class="collapse-item" href="../demolicao/cad_cliente.html">Cadastro de Clientes</a>
+                        <a class="collapse-item" href="../cad_empresa.html">Cadastro de Empresa</a>
+                        <a class="collapse-item" href="../cad_cliente.html">Cadastro de Clientes</a>
                     </div>
                 </div>
             </li>
@@ -389,8 +389,8 @@
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CELULAR *</label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="celular" id="telefone"
-                                                placeholder="Digite um número de telefone" maxlength="15"></div>
+                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"  onkeydown="javascript:aplica_mascara_telefone(this)" onkeyup="javascript:aplica_mascara_telefone(this)" maxlength="15">
+                                                </div>
                                     </div>
 
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
@@ -421,7 +421,7 @@
                                             <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">CNPJ *</label>
                                             <div class="col-sm-6">
                                                 <div class="input-group-append mb-2">
-                                                    <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" size="8" maxlength="18" oninput="formatarCNPJ(this)">
+                                                    <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" size="8" maxlength="18"                                                           oninput="formatarCNPJ(this)">
                                                     <button class="btn btn-secondary btn-sm" type="button" id="button-addon2">Consultar</button>
                                                 </div>                                              
                                             </div>
@@ -441,7 +441,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                            <!--BOTÃO PARA GRAVAR INFORMAÇÕES-->
                                     <div class="column one"><input type="submit" value="GRAVAR" class="btn btn-success">
                                     </div>
                                     <div class="wpcf7-response-output" aria-hidden="true"></div>
@@ -457,10 +456,24 @@
             </div>
                 <!-- Script para confirmações de dados -->
                 <script>
+                    function aplica_mascara_telefone(input) {
+                    // Remove todos os caracteres que não são dígitos
+                    var rawValue = input.value.replace(/\D/g, '');
+                    
+                    // Verifica o tamanho do número de telefone para aplicar a máscara correta
+                    if (rawValue.length <= 10) {
+                        // Máscara para números de telefone com 10 dígitos (XX) XXXX-XXXX
+                        input.value = rawValue.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+                    } else {
+                        // Máscara para números de telefone com 11 dígitos (XX) XXXXX-XXXX
+                        input.value = rawValue.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+                    }
+                }
+
                     function formatarCNPJ(campo) {
                         // Remove todos os caracteres que não são dígitos
                         var cnpj = campo.value.replace(/\D/g, '');
-            
+                
                         // Formata o CNPJ
                         if (cnpj.length <= 14) {
                             cnpj = cnpj.replace(/(\d{2})(\d)/, "$1.$2");
@@ -472,37 +485,46 @@
                             campo.value = cnpj.slice(0, 14); // Limita o CNPJ a 14 caracteres
                         }
                     }
-            
-                    // Função para realizar a consulta ao CNPJ
-                    function consultarCNPJ() {
-                        var cnpj = document.getElementById("cnpj").value;
-            
-                        // Requisição AJAX
-                        var xhr = new XMLHttpRequest();
-                        xhr.onreadystatechange = function() {
-                            if (xhr.readyState == 4) {
-                                if (xhr.status == 200) {
-                                    // Processar a resposta
-                                    var response = xhr.responseText;
-                                    if (response != "") {
-                                        // Se houver uma resposta válida, preencher os campos
-                                        var data = JSON.parse(response);
-                                        document.getElementById("razao_social").value = data.razao_social;
-                                        document.getElementById("nome_fantasia").value = data.nome_fantasia;
-                                    } else {
-                                        // Se não houver resposta, limpar os campos
-                                        document.getElementById("razao_social").value = "";
-                                        document.getElementById("nome_fantasia").value = "";
-                                    }
-                                } else {
-                                    // Tratar erro na requisição
-                                    console.error('Erro na requisição: ' + xhr.status);
-                                }
-                            }
-                        };
-                        xhr.open("GET", "consulta_cnpj.php?cnpj=" + cnpj, true);
-                        xhr.send();
+                       
+                                    function formatarCPF(campo) {
+                                    // Remove todos os caracteres que não são dígitos
+                                    var cpf = campo.value.replace(/\D/g, '');
+
+                                    // Formata o CPF
+                                    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+                                    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+                                    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+                                 campo.value = cpf;
+                             }
+                    
+                    function mtel(v) {
+                        v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+                        v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+                        v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+                        return v;
+                    }                   
+                
+                    function Mudarestado(el) {
+                        var display = document.getElementById(el).style.display;
+                        if (display == "block")
+                            document.getElementById(el).style.display = 'none';
+                        else
+                            document.getElementById(el).style.display = 'block';
                     }
+
+                   // Função para formatar o telefone
+                function formatarTelefone(telefone) {
+                    if (telefone.length === 10) {
+                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone
+                            .substring(6);
+                    } else if (telefone.length === 11) {
+                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone
+                            .substring(7);
+                    } else {
+                        return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
+                    }
+                }
                 </script>
 
                 <!-- Fim do Script para confirmações de dados -->
@@ -562,8 +584,5 @@
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
-<input type="text" id="cnpj" onkeyup="formatarCNPJ(this)" placeholder="Digite o CNPJ">
-    <button onclick="consultarCNPJ()">Consultar</button><br><br>
-    Razão Social: <input type="text" id="razao_social" readonly><br><br>
-    Nome Fantasia: <input type="text" id="nome_fantasia" readonly><br><br>
+
 </html>

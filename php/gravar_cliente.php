@@ -39,12 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['rg'],
         $_POST['celular'],
         $_POST['email'],
-        $_POST['cep'],
-        $_POST['endereco'],
-        $_POST['numero'],
-        $_POST['bairro'],
-        $_POST['cidade'],
-        $_POST['estado']
+        
+   
     );
 
     // Executa a declaração

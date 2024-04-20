@@ -200,3 +200,17 @@ function Procura_Str(param0,param1,param2) {
 function retira_mascara(cpf_cnpj) {
 	return cpf_cnpj.replace(/\./g,'').replace(/-/g,'').replace(/\//g,'')
 }
+function aplica_mascara_telefone(input) {
+    // Remove todos os caracteres que não são dígitos
+    var rawValue = input.value.replace(/\D/g, '');
+    
+    // Verifica o tamanho do número de telefone para aplicar a máscara correta
+    if (rawValue.length <= 10) {
+        // Máscara para números de telefone com 10 dígitos (XX) XXXX-XXXX
+        input.value = rawValue.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    } else {
+        // Máscara para números de telefone com 11 dígitos (XX) XXXXX-XXXX
+        input.value = rawValue.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    }
+}
+
