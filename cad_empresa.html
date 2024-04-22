@@ -447,40 +447,37 @@
             <script>
                 // Função para consultar o CNPJ
                 function consultarCNPJ() {
-                    var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
-                    var url = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
+                var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
+               var apiUrl = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
 
-                    fetch(url)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Erro ao consultar CNPJ');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            preencherCampos(data);
-                        })
-                        .catch(error => {
-                            console.error('Erro:', error);
-                            alert('Erro ao consultar CNPJ');
-                        });
+                    // Consulta o CNPJ na API do Brasil API
+                    fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        preencherCampos(data);
+                    })
+                    .catch(error => {
+                        console.error('Erro ao consultar CNPJ:', error);
+                        alert('Erro ao consultar CNPJ');
+                    });
                 }
 
                 // Função para preencher os campos do formulário
                 function preencherCampos(data) {
                     document.getElementById('razao_social').value = data.razao_social || '';
                     document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
-                    document.getElementById('data_abertura').value = data.data_inicio_atividade ? formatarData(data.data_inicio_atividade) : '';
-                    document.getElementById('ddd_telefone_1').value = data.ddd_telefone_1 ? formatarTelefone(data.ddd_telefone_1) : '';
+                    document.getElementById('data_abertura').value = data.data_inicio_atividade || '';
+                    document.getElementById('ddd_telefone_1').value = data.telefone || '';
                     document.getElementById('email').value = data.email || '';
-                    document.getElementById('cep').value = data.cep ? formatarCEP(data.cep) : '';
+                    document.getElementById('cep').value = data.cep || '';
                     document.getElementById('logradouro').value = data.logradouro || '';
                     document.getElementById('numero').value = data.numero || '';
                     document.getElementById('bairro').value = data.bairro || '';
                     document.getElementById('municipio').value = data.municipio || '';
                     document.getElementById('uf').value = data.uf || '';
-                    // Preencha os outros campos do formulário conforme necessário
                 }
+
+             
 
                 // Função para formatar a data
                 function formatarData(data) {
