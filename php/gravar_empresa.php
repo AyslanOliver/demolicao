@@ -53,12 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Fecha a declaração
-    $stmt->closeCursor();
-
-    // Fecha a conexão
-    $conn = null;
+    $stmt->closeCursor();  
 } else {
     // Se o formulário não foi submetido corretamente, redireciona para a página anterior ou exibe uma mensagem de erro
     echo "Ocorreu um erro ao processar o formulário.";
 }
+ // Fecha a conexão
+ $conn = null;
 ?>

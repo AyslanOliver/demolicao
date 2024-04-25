@@ -422,7 +422,7 @@
                                             <div class="col-sm-6">
                                                 <div class="input-group-append mb-2">
                                                     <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" size="8" maxlength="18"                                                           oninput="formatarCNPJ(this)">
-                                                    <button class="btn btn-secondary btn-sm" type="button" id="button-addon2">Consultar</button>
+                                                    <button class="btn btn-secondary btn-sm" type="button" id="button-addon2" onclick="consultarEmpresa()">Consultar</button>
                                                 </div>                                              
                                             </div>
                                         </div>
@@ -457,19 +457,19 @@
                 <!-- Script para confirmações de dados -->
                 <script>
                     function aplica_mascara_telefone(input) {
-                    // Remove todos os caracteres que não são dígitos
-                    var rawValue = input.value.replace(/\D/g, '');
-                    
-                    // Verifica o tamanho do número de telefone para aplicar a máscara correta
-                    if (rawValue.length <= 10) {
-                        // Máscara para números de telefone com 10 dígitos (XX) XXXX-XXXX
-                        input.value = rawValue.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
-                    } else {
-                        // Máscara para números de telefone com 11 dígitos (XX) XXXXX-XXXX
-                        input.value = rawValue.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+                        // Remove todos os caracteres que não são dígitos
+                        var rawValue = input.value.replace(/\D/g, '');
+                
+                        // Verifica o tamanho do número de telefone para aplicar a máscara correta
+                        if (rawValue.length <= 10) {
+                            // Máscara para números de telefone com 10 dígitos (XX) XXXX-XXXX
+                            input.value = rawValue.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+                        } else {
+                            // Máscara para números de telefone com 11 dígitos (XX) XXXXX-XXXX
+                            input.value = rawValue.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+                        }
                     }
-                }
-
+                
                     function formatarCNPJ(campo) {
                         // Remove todos os caracteres que não são dígitos
                         var cnpj = campo.value.replace(/\D/g, '');
@@ -485,25 +485,25 @@
                             campo.value = cnpj.slice(0, 14); // Limita o CNPJ a 14 caracteres
                         }
                     }
-                       
-                                    function formatarCPF(campo) {
-                                    // Remove todos os caracteres que não são dígitos
-                                    var cpf = campo.value.replace(/\D/g, '');
-
-                                    // Formata o CPF
-                                    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
-                                    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
-                                    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-
-                                 campo.value = cpf;
-                             }
-                    
+                
+                    function formatarCPF(campo) {
+                        // Remove todos os caracteres que não são dígitos
+                        var cpf = campo.value.replace(/\D/g, '');
+                
+                        // Formata o CPF
+                        cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+                        cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+                        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                
+                        campo.value = cpf;
+                    }
+                
                     function mtel(v) {
                         v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
                         v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
                         v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
                         return v;
-                    }                   
+                    }
                 
                     function Mudarestado(el) {
                         var display = document.getElementById(el).style.display;
@@ -512,20 +512,42 @@
                         else
                             document.getElementById(el).style.display = 'block';
                     }
-
-                   // Função para formatar o telefone
-                function formatarTelefone(telefone) {
-                    if (telefone.length === 10) {
-                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone
-                            .substring(6);
-                    } else if (telefone.length === 11) {
-                        return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone
-                            .substring(7);
-                    } else {
-                        return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
+                
+                    // Função para formatar o telefone
+                    function formatarTelefone(telefone) {
+                        if (telefone.length === 10) {
+                            return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone.substring(6);
+                        } else if (telefone.length === 11) {
+                            return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone.substring(7);
+                        } else {
+                            return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
+                        }
                     }
-                }
+                
+                    // Função para consultar a empresa com o CNPJ fornecido
+                    function consultarEmpresa() {
+                        var cnpj = document.getElementById('cnpj').value;
+                        // Fazer uma solicitação AJAX para buscar os dados da empresa no servidor
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                // Manipular a resposta do servidor
+                                var resposta = JSON.parse(this.responseText);
+                                if (resposta.success) {
+                                    // Os dados da empresa foram encontrados, você pode preencher os campos do formulário com os dados retornados
+                                    document.getElementById('razao_social').value = resposta.razao_social;
+                                    document.getElementById('nome_fantasia').value = resposta.nome_fantasia;
+                                    // E assim por diante...
+                                } else {
+                                    alert("Empresa não encontrada.");
+                                }
+                            }
+                        };
+                        xhttp.open("GET", "view_empresa.php?cnpj=" + cnpj, true);
+                        xhttp.send();
+                    }
                 </script>
+                
 
                 <!-- Fim do Script para confirmações de dados -->
                 <!-- Footer -->
@@ -572,7 +594,7 @@
 
                 <!-- Core plugin JavaScript-->
                 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-                <script src="../js/validacao-e-mascara.js"></script>
+                <script src="../demolicao/js/validacao-e-mascara.js"></script>
                 <!-- Custom scripts for all pages-->
                 <script src="js/sb-admin-2.min.js"></script>
 
