@@ -413,7 +413,7 @@
                                     </div>
                                     
                                     <div class="form-group row top5">
-                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Logradouro *</label>
+                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Logradouro </label>
                                         <div class="col-sm-6">
                                             <input class="form-control mr-sm-2 form-control-sm" type="text" name="logradouro" id="logradouro">
                                         </div>
@@ -427,21 +427,21 @@
                                     </div>
                                     
                                     <div class="form-group row top5">
-                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Bairro *</label>
+                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Bairro </label>
                                         <div class="col-sm-6">
                                             <input class="form-control mr-sm-2 form-control-sm" type="text" name="bairro" id="bairro">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
-                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Município *</label>
+                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Município </label>
                                         <div class="col-sm-6">
                                             <input class="form-control mr-sm-2 form-control-sm" type="text" name="municipio" id="municipio">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
-                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Estado *</label>
+                                        <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Estado </label>
                                         <div class="col-sm-6">
                                             <input class="form-control mr-sm-2 form-control-sm" type="text" name="uf" id="uf">
                                         </div>
@@ -461,10 +461,13 @@
 
                                         <div id="minhaDiv" style="display:none">
 
-                                            <div class="form-group row top5"><label class="col-sm-3 form-control-sm"
-                                                    id="small" for="inlineFormCustomSelect">ID </label>
-                                                <div class="col-sm-6"><input class= "mr-sm form-control-sm"
-                                                        type="text" name="id_empresa" id="id_empresa" required></div>
+                                            <div class="form-group row top5">
+                                                <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">ID </label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group-append m-sm">
+                                                        <input type="text" class="form-control form-control-sm d-sm"  name="id_empresa" id="id_empresa" >
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div id="mensagem-erro" style="color: red;"></div>
@@ -608,19 +611,19 @@
                     }                           
                 </script>
               <script>
-                function consultarEmpresa() {
+                            function consultarEmpresa() {
                     var cnpj = document.getElementById('cnpj').value;
-            
+
                     // Verificar se o CNPJ foi fornecido
                     if (!cnpj) {
                         document.getElementById('mensagem-erro').innerText = 'Por favor, insira um CNPJ válido.';
                         return;
                     }
-            
+
                     // Enviar uma solicitação AJAX para o servidor
                     console.log('Enviando solicitação AJAX para consultar empresa...');
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '../demolicao/php/consulta_empresa.php', true);
+                    xhr.open('GET', '../demolicao/php/consulta_empresa.php?cnpj=' + encodeURIComponent(cnpj), true);
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -639,8 +642,8 @@
                                     document.getElementById('mensagem-erro').innerText = 'Erro ao consultar empresa: ' + response.error;
                                 }
                             } else {
-                                console.log('Erro ao receber resposta do servidor. Status:', xhr.status);
-                                document.getElementById('mensagem-erro').innerText = 'Erro ao realizar a solicitação.';
+                                console.error('Erro ao receber resposta do servidor. Status:', xhr.status);
+                                document.getElementById('mensagem-erro').innerText = 'Erro ao realizar a solicitação. Por favor, tente novamente mais tarde.';
                             }
                         }
                     };

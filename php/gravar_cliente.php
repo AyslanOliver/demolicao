@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepara e executa a declaração de inserção
-    $sql = "INSERT INTO cad_cliente (nome, nascimento, genero, cpf, rg, celular, email, cep, endereco, numero, bairro, cidade, estado, id_empresa, cnpj, razao_social, nome_fantasia) 
+    $sql = "INSERT INTO cad_cliente (nome, nascimento, genero, cpf, rg, celular, email, cep, endereco, numero, bairro, cidade, estado, id, cnpj, razao_social, nome_fantasia) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepara a declaração SQL
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(11, $_POST['bairro']);
     $stmt->bindParam(12, $_POST['municipio']);
     $stmt->bindParam(13, $_POST['uf']);
-    $stmt->bindParam(14, $_POST['id_empresa']);
+    $stmt->bindParam(14, $_POST['id']);
     $stmt->bindParam(15, $_POST['cnpj']);
     $stmt->bindParam(16, $_POST['razao_social']);
     $stmt->bindParam(17, $_POST['nome_fantasia']);

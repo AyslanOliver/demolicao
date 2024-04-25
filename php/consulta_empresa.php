@@ -16,8 +16,8 @@ if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);
 }
 
-// Receber o CNPJ enviado pela solicitação AJAX
-$cnpj = $_POST['cnpj'];
+// Receber o CNPJ enviado pela solicitação GET
+$cnpj = $_GET['cnpj'];
 
 // Consultar empresa no banco de dados
 $sql = "SELECT id, razao_social, nome_fantasia FROM cad_empresa WHERE cnpj = '$cnpj'";
@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
     echo json_encode(array('success' => true, 'id' => $row['id'], 'razao_social' => $row['razao_social'], 'nome_fantasia' => $row['nome_fantasia']));
 } else {
     // Empresa não encontrada
-    echo json_encode(array('success' => false, 'error' => 'Empresa não encontrada'));
+    echo json_encode(array('success' => false, 'error' => 'Empresa não encontrada para o CNPJ fornecido.'));
 }
 
 // Fechar conexão com o banco de dados

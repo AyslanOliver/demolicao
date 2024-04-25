@@ -59,5 +59,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Ocorreu um erro ao processar o formulário.";
 }
  // Fecha a conexão
- $conn = null;
+    $conn = null;
 ?>
