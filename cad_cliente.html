@@ -365,8 +365,7 @@
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">GENERO *</label>
                                         <div class="col-sm-6">
-                                            <select name="genero" id="categoria" class="form-control form-control-sm"
-                                                required>
+                                            <select name="genero" id="categoria" class="form-control form-control-sm" required>
                                                 <option value="">SELECIONE...</option>
                                                 <option value="M">MASCULINO</option>
                                                 <option value="F">FEMININO</option>
@@ -384,12 +383,12 @@
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">RG *</label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="rg" id="data_final"></div>
+                                                type="text" name="rg" id="data_final" required></div>
                                     </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CELULAR *</label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"  onkeydown="javascript:aplica_mascara_telefone(this)" onkeyup="javascript:aplica_mascara_telefone(this)" maxlength="15">
+                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"  onkeydown="javascript:aplica_mascara_telefone(this)" onkeyup="javascript:aplica_mascara_telefone(this)" maxlength="15" required>
                                                 </div>
                                     </div>
 
@@ -404,46 +403,46 @@
                                         <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">CEP *</label>
                                         <div class="col-sm-6">
                                             <div class="input-group mb-3">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="cep" id="cep" value size="10" maxlength="9">
-                                                <div class="input-group-append">                                                                                              
-                                                    <button   class="btn btn-primary btn-sm"  onclick="consultarCEP()">Buscar Endereço</button>                                                                                                                   
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="cep" id="cep" value size="10" maxlength="9" required>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-primary btn-sm" onclick="consultarCEP()">Buscar Endereço</button>
                                                 </div>
-                                            </div>                                        
-                                        </div>                                    
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
                                         <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Logradouro </label>
                                         <div class="col-sm-6">
-                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="logradouro" id="logradouro">
+                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="logradouro" id="logradouro" disabled>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
                                         <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Número *</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="numero" id="numero">
+                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="numero" id="numero" >
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
                                         <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Bairro </label>
                                         <div class="col-sm-6">
-                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="bairro" id="bairro">
+                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="bairro" id="bairro" disabled>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
                                         <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Município </label>
                                         <div class="col-sm-6">
-                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="municipio" id="municipio">
+                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="municipio" id="municipio" disabled>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row top5">
                                         <label class="col-sm-3 form-control-sm" for="inlineFormCustomSelect">Estado </label>
                                         <div class="col-sm-6">
-                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="uf" id="uf">
+                                            <input class="form-control mr-sm-2 form-control-sm" type="text" name="uf" id="uf" disabled>
                                         </div>
                                     </div>
                                 
@@ -465,7 +464,7 @@
                                                 <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">ID </label>
                                                 <div class="col-sm-6">
                                                     <div class="input-group-append m-sm">
-                                                        <input type="text" class="form-control form-control-sm d-sm"  name="id_empresa" id="id_empresa" >
+                                                        <input type="text" class="form-control form-control-sm d-sm w-25 p-3"   name="id_empresa" id="id_empresa" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -487,21 +486,28 @@
                                         <div class="form-group row top5">
                                             <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Razão Social</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="razao_social" id="razao_social" required>
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="razao_social" id="razao_social" disabled>
                                             </div>
                                         </div>
 
                                         <div class="form-group row top5">
                                             <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Nome Fantasia</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="nome_fantasia" id="nome_fantasia">
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="nome_fantasia" id="nome_fantasia" disabled>
                                             </div>
                                         </div>
                                         </div>
-                                    <div class="column one"><input type="submit" value="GRAVAR" class="btn btn-success">
-                                    </div>
-                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                        <div class="column one">
+                                            <button type="button" class="btn btn-success" onclick="enviarFormulario()">GRAVAR</button>
+                                        </div>
+                                        <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                                                        
                                 </form>
+                                <script>
+                                    function enviarFormulario() {
+                                        document.getElementById('formulario').submit();
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -574,31 +580,45 @@
                         function formatarCEP(cep) {
                         return cep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
                     }
-                      // Função para consultar o CEP
                             function consultarCEP() {
-                                var cep = document.getElementById('cep').value.replace(/[^\d]+/g, '');
-                                var apiUrl = 'https://brasilapi.com.br/api/cep/v1/' + cep;
+                            var cep = document.getElementById('cep').value.replace(/[^\d]+/g, '');
+            
+                                    // Verifica se o campo do CEP está vazio
+                                    if (!cep) {
+                                        alert('Por favor, insira um CEP válido.');
+                                        return;
+                                    }
 
-                                // Consulta o CEP na API do Brasil API
-                                fetch(apiUrl)
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        preencherCampos(data);
-                                    })
-                                    .catch(error => {
-                                        console.error('Erro ao consultar CEP:', error);
-                                        alert('Erro ao consultar CEP');
-                                    });
-                            }
+                                    var apiUrl = 'https://brasilapi.com.br/api/cep/v1/' + cep;
 
-                            // Função para preencher os campos do formulário com os dados do endereço
-                            function preencherCampos(data) {
-                                document.getElementById('logradouro').value = data.street || '';
-                                document.getElementById('bairro').value = data.neighborhood || '';
-                                document.getElementById('municipio').value = data.city || '';
-                                document.getElementById('uf').value = data.state || '';
-                            }
-                
+                                    // Consulta o CEP na API do Brasil API
+                                    fetch(apiUrl)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Erro ao consultar o CEP. Por favor, verifique se o CEP é válido.');
+                                            }
+                                            return response.json();
+                                        })
+                                        .then(data => {
+                                            // Verifica se a API retornou algum erro específico
+                                            if (data.error) {
+                                                throw new Error('Erro ao consultar o CEP. Por favor, verifique se o CEP é válido.');
+                                            }
+                                            preencherCampos(data);
+                                        })
+                                        .catch(error => {
+                                            console.error('Erro ao consultar CEP:', error.message);
+                                            alert(error.message);
+                                        });
+                                }
+
+// Função para preencher os campos do formulário com os dados do endereço
+function preencherCampos(data) {
+    document.getElementById('logradouro').value = data.street || '';
+    document.getElementById('bairro').value = data.neighborhood || '';
+    document.getElementById('municipio').value = data.city || '';
+    document.getElementById('uf').value = data.state || '';
+}
                     // Função para formatar o telefone
                     function formatarTelefone(telefone) {
                         if (telefone.length === 10) {
