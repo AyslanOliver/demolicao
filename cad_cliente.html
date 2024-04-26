@@ -406,7 +406,7 @@
                                             <div class="input-group mb-3">
                                                 <input class="form-control mr-sm-2 form-control-sm" type="text" name="cep" id="cep" value size="10" maxlength="9">
                                                 <div class="input-group-append">                                                                                              
-                                                    <button   class="btn btn-primary btn-sm"  onclick="consultarCEP()">Buscar Endereço</button>                                                                                                                   
+                                                    <button  type="button" class="btn btn-primary btn-sm btn-icon-split"  onclick="consultarCEP()">Buscar Endereço</button>                                                                                                                   
                                                 </div>
                                             </div>                                        
                                         </div>                                    
@@ -449,7 +449,7 @@
                                 
 
                                         <div class="form-group row">
-                                            <label class="col-sm-3" id="small"> REPRESENTANTE DE EMPRESA?</label>
+                                            <label class="col-sm-3" id="small" style="color: rgb(13, 17, 227); font-family: monospace;" > Representante de Empresa?</label>
                                             <div class="col-sm-6">
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="customSwitch2"
@@ -462,10 +462,10 @@
                                         <div id="minhaDiv" style="display:none">
 
                                             <div class="form-group row top5">
-                                                <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">ID </label>
+                                                <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">ID</label>
                                                 <div class="col-sm-6">
                                                     <div class="input-group-append m-sm">
-                                                        <input type="text" class="form-control form-control-sm d-sm"  name="id_empresa" id="id_empresa" >
+                                                        <input type="text" class="form-control form-control-sm d-sm w-25 p-1"  name="id_empresa" id="id_empresa" disabled >
                                                     </div>
                                                 </div>
                                             </div>
@@ -476,7 +476,7 @@
                                             <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">CNPJ *</label>
                                             <div class="col-sm-6">
                                                 <div class="input-group-append mb-2">
-                                                    <input class="form-control mr-sm-2 form-control-sm" type="text" name="cnpj" id="cnpj" size="8"
+                                                    <input class="form-control mr-sm-2 form-control-sm w-50 p-2" type="text" name="cnpj" id="cnpj" size="8"
                                                         maxlength="18" oninput="formatarCNPJ(this)">
                                                     <button class="btn btn-secondary btn-sm" type="button" id="button-addon2"
                                                         onclick="consultarEmpresa()">Consultar</button>
@@ -487,14 +487,14 @@
                                         <div class="form-group row top5">
                                             <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Razão Social</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="razao_social" id="razao_social" required>
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="razao_social" id="razao_social" disabled>
                                             </div>
                                         </div>
 
                                         <div class="form-group row top5">
                                             <label class="col-sm-3 form-control-sm" id="small" for="inlineFormCustomSelect">Nome Fantasia</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="nome_fantasia" id="nome_fantasia">
+                                                <input class="form-control mr-sm-2 form-control-sm" type="text" name="nome_fantasia" id="nome_fantasia" disabled>
                                             </div>
                                         </div>
                                         </div>
