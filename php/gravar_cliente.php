@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(6, $_POST['ddd_telefone_1']); // Corrigindo para ddd_telefone_1
     $stmt->bindParam(7, $_POST['email']);
     $stmt->bindParam(8, $_POST['cep']);
-    $stmt->bindParam(9, $_POST['logradouro']);
+    $stmt->bindParam(9, $_POST['logradouro']); // Alterado para 'logradouro'
     $stmt->bindParam(10, $_POST['numero']);
     $stmt->bindParam(11, $_POST['bairro']);
     $stmt->bindParam(12, $_POST['municipio']);
