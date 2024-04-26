@@ -90,8 +90,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Operação:</h6>
-                        <a class="collapse-item" href="../cad_empresa.html">Cadastro de Empresa</a>
-                        <a class="collapse-item" href="../cad_cliente.html">Cadastro de Clientes</a>
+                        <a class="collapse-item" href="../demolicao/cad_empresa.html">Cadastro de Empresa</a>
+                        <a class="collapse-item" href="../demolicao/cad_cliente.html">Cadastro de Clientes</a>
                     </div>
                 </div>
             </li>
@@ -612,23 +612,23 @@
                                         });
                                 }
 
-// Função para preencher os campos do formulário com os dados do endereço
-function preencherCampos(data) {
-    document.getElementById('logradouro').value = data.street || '';
-    document.getElementById('bairro').value = data.neighborhood || '';
-    document.getElementById('municipio').value = data.city || '';
-    document.getElementById('uf').value = data.state || '';
-}
-                    // Função para formatar o telefone
-                    function formatarTelefone(telefone) {
-                        if (telefone.length === 10) {
-                            return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone.substring(6);
-                        } else if (telefone.length === 11) {
-                            return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone.substring(7);
-                        } else {
-                            return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
-                        }
-                    }                           
+                                    // Função para preencher os campos do formulário com os dados do endereço
+                                    function preencherCampos(data) {
+                                        document.getElementById('logradouro').value = data.street || '';
+                                        document.getElementById('bairro').value = data.neighborhood || '';
+                                        document.getElementById('municipio').value = data.city || '';
+                                        document.getElementById('uf').value = data.state || '';
+                                    }
+                                        // Função para formatar o telefone
+                                        function formatarTelefone(telefone) {
+                                            if (telefone.length === 10) {
+                                                return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 6) + '-' + telefone.substring(6);
+                                            } else if (telefone.length === 11) {
+                                                return '(' + telefone.substring(0, 2) + ') ' + telefone.substring(2, 7) + '-' + telefone.substring(7);
+                                            } else {
+                                                return telefone; // Se o tamanho do telefone não for 10 ou 11, retorna sem formatação
+                                            }
+                                        }                           
                 </script>
               <script>
                             function consultarEmpresa() {

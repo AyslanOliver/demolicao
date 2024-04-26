@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado) {
         echo '<script>alert("Já existe uma empresa cadastrada com esse CNPJ!"); window.location.href = "../cad_empresa.html";</script>';
         exit;
-    }
+    } 
 
     // Prepara e executa a declaração de inserção
     $sql = "INSERT INTO cad_empresa (cnpj, razao_social, nome_fantasia, data_abertura, ddd_telefone_1, email, cep, logradouro, numero, bairro, municipio, uf) 
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(1, $_POST['cnpj']);
     $stmt->bindParam(2, $_POST['razao_social']);
     $stmt->bindParam(3, $_POST['nome_fantasia']);
-    $stmt->bindParam(4, $_POST['data_abertura']);
+    $stmt->bindParam(4, $data_abertura_formatada);
     $stmt->bindParam(5, $_POST['ddd_telefone_1']);
     $stmt->bindParam(6, $_POST['email']);
     $stmt->bindParam(7, $_POST['cep']);
@@ -58,6 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Se o formulário não foi submetido corretamente, redireciona para a página anterior ou exibe uma mensagem de erro
     echo "Ocorreu um erro ao processar o formulário.";
 }
- // Fecha a conexão
-    $conn = null;
+// Fecha a conexão
+$conn = null;
 ?>

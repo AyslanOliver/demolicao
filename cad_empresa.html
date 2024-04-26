@@ -377,13 +377,13 @@
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Data de Abertura </label>
                                         <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="data_abertura" id="data_abertura"></div>
+                                                type="date" name="data_abertura" id="data_abertura"></div>
                                     </div>
 
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Número de Contato </label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
-                                                type="text" name="ddd_telefone_1" id="ddd_telefone_1"></div>
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" maxlength="12"
+                                                type="tel" name="ddd_telefone_1" id="ddd_telefone_1"></div>
                                     </div>
 
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
@@ -395,8 +395,8 @@
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">CEP </label>
                                         <div class="col-sm-6">
-                                           <input class="form-control mr-sm-2 form-control-sm" 
-                                                    type="text" id="cep" value="" size="10" maxlength="9" name="cep">
+                                           <input class="form-control col-sm-2" 
+                                                    type="text" id="cep" value="" size="9" maxlength="9" name="cep" disabled>
                                                 <div class="input-group-append">
                                                 </div>                                            
                                         </div>
@@ -414,17 +414,17 @@
                                     </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Bairro *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" disabled
                                                 type="text" name="bairro" id="bairro"></div>
                                     </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Município *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" disabled
                                                 type="text" name="municipio" id="municipio"></div>
                                     </div>
                                     <div class="form-group row top5"><label class="col-sm-3 form-control-sm" id="small"
                                             for="inlineFormCustomSelect">Estado *</label>
-                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm"
+                                        <div class="col-sm-6"><input class="form-control mr-sm-2 form-control-sm" disabled
                                                 type="text" name="uf" id="uf"></div>
                                     </div>
 
@@ -463,11 +463,30 @@
                 }
 
                 // Função para preencher os campos do formulário
+                User
+ // Função para consultar o CNPJ
+                function consultarCNPJ() {
+                var cnpj = document.getElementById('cnpj').value.replace(/[^\d]+/g, '');
+               var apiUrl = 'https://brasilapi.com.br/api/cnpj/v1/' + cnpj;
+
+                    // Consulta o CNPJ na API do Brasil API
+                    fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        preencherCampos(data);
+                    })
+                    .catch(error => {
+                        console.error('Erro ao consultar CNPJ:', error);
+                        alert('Erro ao consultar CNPJ');
+                    });
+                }
+
+                // Função para preencher os campos do formulário
                 function preencherCampos(data) {
                     document.getElementById('razao_social').value = data.razao_social || '';
                     document.getElementById('nome_fantasia').value = data.nome_fantasia || '';
                     document.getElementById('data_abertura').value = data.data_inicio_atividade || '';
-                    document.getElementById('ddd_telefone_1').value = data.telefone || '';
+                    document.getElementById('ddd_telefone_1').value = data.tddd_telefone_1 || '';
                     document.getElementById('email').value = data.email || '';
                     document.getElementById('cep').value = data.cep || '';
                     document.getElementById('logradouro').value = data.logradouro || '';
