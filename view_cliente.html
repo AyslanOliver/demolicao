@@ -343,84 +343,69 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
+                        
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Empresas Cadastradas</h6>
-                        </div>
-                        <div class="card-body">
+                            
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>CNPJ</th>
-                                            <th>Empresa</th>
-                                            <th>Razão Social</th>
-                                            <th>Representante da Empresa</th>
-                                            <th>Ramo</th>
-                                            <th>Data Cadastral</th>
-                                            <th>Mensalidade</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>CNPJ</th>
-                                            <th>Empresa</th>
-                                            <th>Razão Social</th>
-                                            <th>Representante da Empresa</th>
-                                            <th>Ramo</th>
-                                            <th>Data Cadastral</th>
-                                            <th>Mensalidade</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                          
-                                    </tbody>
-                                </table>
-                            </div>
+                              
+                                <h6 class="m-0 font-weight-bold text-primary">Empresas Cadastradas</h6>
+                                <hr class="sidebar-divider">
+                                <table class="table table-bordered dataTable no-footer" id="dataTable" width="100%" cellspacing="0" role="grid"
+                                aria-describedby="dataTable_info" style="width: 100;">
+                                <thead>
+                                    <tr>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 11px;">ID</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 45px;">CNPJ</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 360px;">Razão Social</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 186px;">Nome Fantasia</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 100px;">Data de Abertura</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 148px;">Telefone</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 200px;">Municipio</th>
+                                        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                            aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                            style="width: 100px;">CEP</th>
+                                    </tr>
+                                </thead>
+                    
+                                <tfoot>
+                    
+                                </tfoot>
+                    
+                                <!-- Início do script de tabela -->
+                                <script>
+                                    fetch('../demolicao/php/view_cliente.php')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('conteudo').innerHTML = data;
+                                        })
+                                        .catch(error => console.error('Ocorreu um erro:', error));
+                                </script>
+                                <!-- Fim do script de tabela -->
+                    
+                                <!-- Adicione um tbody vazio para ser preenchido pelo script -->
+                                <tbody id="conteudo"></tbody>
+                            </table>
+                                                     
                         </div>
                     </div>
-
-                </div>
-                <!-- /.container-fluid -->
+                        </div>
+                            </div>                                                         
+                                          
+                      <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
