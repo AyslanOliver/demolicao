@@ -3,20 +3,20 @@
     "php.validate.enable": false,
     "liveServer.settings.port": 5501,
     "symbols.hidesExplorerArrows": false,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Nebula Oni (Pegasus)",
     "explorer.confirmDelete": false,
     "redhat.telemetry.enabled": true,
     "git.enableSmartCommit": true,
     "explorer.confirmDragAndDrop": false,
     "git.confirmSync": false,
     "files.autoSave": "afterDelay",
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
     "editor.lineHeight": 1.8,
     "editor.fontLigatures": true,
     "workbench.editor.labelFormat": "short",
     "breadcrumbs.enabled": false,
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "0xProto",
+    "editor.fontFamily": "Trebuchet MS",
     "[html]": 
     
     {

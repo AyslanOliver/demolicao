@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Finanças - Cadastro</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+	
+<!-- jQuery -->
+<script src="assets/js/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
+
+<script src="validacao-e-mascara-js.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    function limpa_formulario_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('estado').value=("");
+            
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('estado').value=(conteudo.uf);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulario_cep();
+            alert("CEP não encontrado.");
+            document.getElementById('cep').value=("");
+        }
+    }
+        
+    function pesquisacep(valor) {
+ //alert ('ok');
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep !== "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('estado').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = '//viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulario_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulario_cep();
+        }
+    }
+
+function formatar(mascara, documento){
+  var i = documento.value.length;
+  var saida = mascara.substring(0,1);
+  var texto = mascara.substring(i);
+  
+  if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+  }
+  
+}
+ 
+
+/* Máscaras ER */
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+function mtel(v){
+    v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+function id( el ){
+	return document.getElementById( el );
+}
+window.onload = function(){
+	id('telefone').onkeyup = function(){
+		mascara( this, mtel );
+	}
+}
+</script>
+
+<STYLE>
+.borda {
+    border-radius: 30px;
+	height:50px;
+}
+</STYLE>
+</head>
+
+
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                        
+						<div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Complete seus dados</h1>
+                            </div>
+                            <form action="register3.php"  method="POST" name="formulario"  enctype="multipart/form-data" class="user"> 
+							<input type="hidden" name="nome" value="Elton">
+							<input type="hidden" name="sobrenome" value="Brito ">
+							<input type="hidden" name="email" value="elton@gmail.com">
+							<input type="hidden" name="senha" value="123456">
+							<input type="hidden" name="senha_repete" value="123456">
+							<input type="hidden" name="cod_convite" value="">
+							<input type="hidden" name="id_convite" value="">
+							
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+									<input type="text" placeholder="CNPJ ou CPF" id="cpf-cnpj" name="cpf_cnpj" class="form-control form-control-user" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)" maxlength="18">
+                                        
+                                    </div>
+                                    <div class="col-sm-6">
+                            <select class="form-control form-control-sm borda" name="tipo" required="required" onchange="choice1(this)" id="tipo">
+                            <option value="" selected>Selecione o tipo de cadastro</option>
+							<option value="A" >Academia</option>
+							<option value="C" >Atleta Independente</option>
+							</select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="razao" placeholder="Razão Social ou Nome Completo" name="razao" maxlength="29" required>
+                                </div>
+								
+								<div id="dados_academia" style="display:block;">
+                                <div class="form-group" >
+                                    <input type="text" class="form-control form-control-user" id="fantasia" placeholder="Nome da Academia" name="fantasia">
+                                </div>	
+								<div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="equipe" placeholder="Nome da Equipe" name="equipe">
+                                </div>
+
+								<div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Website" name="website">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Instagram" name="instagram">
+                                    </div>
+                                </div>
+                                
+								<div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Inscrição Municipal" name="insc_mun">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Inscrição Estadual" name="insc_est">
+                                    </div>
+                                </div>
+								
+								</div>
+								
+								<div id="dados_academia2" style="display:block;">
+								<div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        
+                                        <input type="text" class="form-control form-control-user" name="data_fun" placeholder="Data de Fundaçao" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Responsável Técnico" name="contato">
+                                    </div>
+                                </div>
+								</div>
+
+								<div id="dados_aluno2" style="display:none;">
+								<div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name="data_fun" placeholder="Data de Nascimento" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Apelido" name="apelido">
+                                    </div>
+                                </div>
+								
+								<div class="form-group row">
+								    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <select name="genero" id="categoria"  class="form-control form-control-sm borda" >
+											<option value="">Selecione o gênero</option>
+											<option value="M">Masculino</option>
+											<option value="F">Feminino</option>
+										</select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="graduacao" id="categoria"  class="form-control form-control-sm borda"  >
+											<option value="">Selecione sua graduação atual</option>
+												<option value='1'>Branco 1o Khan</option><option value='2'>Amarelo 2o khan</option><option value='3'>Amarelo com Branco 3o Khan</option><option value='4'>Verde 4o Khan</option><option value='5'>Verde com Branco 5o Khan</option><option value='6'>Azul 6o Khan</option><option value='7'>Azul com Branco 7o Khan</option><option value='8'>Marrom 8o Khan</option><option value='18'>Marrom com Branco 9o Khan</option><option value='19'>Vermelho 10o Khan</option><option value='20'>Vermelho com Branco 11o Khan</option><option value='21'>Preto  12o Khan</option><option value='22'>Preto com Branco 13o Khan</option><option value='23'>Prata 14o khan</option><option value='44'>Branco com ponta Vermelho 2oKhan</option><option value='45'>Vermelho com ponta Azul Claro 4o Khan</option><option value='46'>Azul Claro 5o Khan</option><option value='47'>Azul Claro com ponta Azul Escuro 6o Khan</option><option value='48'>Azul Escuro 7o Khan</option><option value='49'>Azul Escuro com ponta Preta 8o Khan</option><option value='50'>KIDS: Cinza</option><option value='51'>KIDS: Cinza com Branco</option><option value='52'>KIDS: Cinza com Amarelo</option><option value='53'>KIDS: Cinza com Verde</option><option value='54'>KIDS: Cinza com Azul</option><option value='55'>KIDS: Laranja</option><option value='56'>KIDS: Laranja com Branco</option><option value='57'>KIDS: Laranja com Amarelo</option><option value='58'>KIDS: Laranja com Verde</option><option value='59'>KIDS: Laranja com Azul</option><option value='117'>Vermelho 3oKhan</option><option value='118'>Preto 9o Khan</option><option value='119'>Preto com Branco 10o Khan</option><option value='120'>KIDS: Branca</option>										</select>
+                                    </div>
+								</div>
+								</div>
+								
+                                <div class="form-group row">
+								    <div class="col-sm-6">
+									<input type="text" class="form-control form-control-user" name="telefone" id="telefone" placeholder="Digite um número de telefone" maxlength="15" required />
+									
+                                    </div>
+									
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+									<div class="input-group mb-3">
+                                    <input class="form-control form-control-user" placeholder="Digite Apenas os números" type="text" id="cep" value="" size="10" maxlength="9" name="cep">
+									<div class="input-group-append">
+									<button class="btn btn-primary btn-user" type="button" id="button-addon2" onclick="pesquisacep(cep.value)">Buscar Endereço</button>
+									</div>
+									</div>
+                                    </div>
+
+                                </div>	
+								
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input id="rua" name="rua" class="form-control form-control-user" placeholder="rua, avenida, outros..." required="required" type="text">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Número" name="numero" id="numero" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="complemento" placeholder="Complemento do Endereço" name="complemento">
+                                </div>
+								
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input id="bairro" name="bairro" class="form-control form-control-user" placeholder="bairro" required="required" type="text">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input id="cidade" name="cidade" class="form-control form-control-user" placeholder="cidade" required="required" type="text">
+                                    </div>
+									<div class="col-sm-2">
+                                        <input id="estado" name="estado" class="form-control form-control-user" placeholder="uf" required="required" type="text">
+                                    </div>
+                                </div>	
+								
+								<div id="dados_aluno3" style="display:none;">
+								<div class="form-group row">
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Digite seu peso" name="peso">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Cartel" name="cartel">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Sherdog" name="sherdog">
+                                    </div>									
+                                </div>
+
+								</div>
+								
+								<div id="logo_academia" style="display:block;">
+									<div class="input-group mb-3" >
+									<label class="input-group-text input-group-text borda" for="inputGroupFile01">LOGOMARCA (PNG FUNDO TRANSPARENTE)</label>
+									<input type="file" name="pic" id="arquivo" accept="image/*" class="form-control borda" onchange="return validarArquivo()" >
+									</div>
+								</div>
+
+								<div id="foto_aluno" style="display:none;">
+									<div class="input-group mb-3">
+									<label class="input-group-text input-group-text borda" for="inputGroupFile01">FOTO (PADRÃO 3x4 DOCUMENTOS)</label>
+									<input type="file" name="pic_foto" id="imagem" accept="image/*" class="form-control borda" onchange="return validarArquivo2()" required>
+									</div>
+								</div>
+							
+								<div id="comp_graduacao" style="display:none;">
+									<div class="input-group mb-3">
+									<label class="input-group-text input-group-text borda" for="inputGroupFile01">COMPROVANTE DE GRADUAÇÃO</label>
+									<input type="file" name="pic_graduacao" id="imagem_graduacao" accept="image/*" class="form-control borda" onchange="return validarArquivo3()" required>
+									</div>
+								</div>
+								
+                                <input type="submit" value="AVANÇAR" class="btn btn-primary" name="">
+                                
+                            </form>
+                            <hr>
+
+                        </div>
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+	<script>
+	function validarArquivo(){
+		//alert('teste');
+    var arquivoInput = document.getElementById('arquivo');
+    var caminhoArquivo = arquivoInput.value;
+    var extensoesPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
+    if(!extensoesPermitidas.exec(caminhoArquivo)){
+        alert('Por favor envie um arquivo que tenha as extensões.jpeg/.jpg/.png/.gif .');
+        arquivoInput.value = '';
+        return false;
+    }else{
+        if (arquivoInput.files && arquivoInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('visualizarImagem').innerHTML = '';
+            };
+            reader.readAsDataURL(arquivoInput.files[0]);
+ console.log(arquivoInput.files[0].size / 1024 / 1024);
+ console.log(arquivoInput.files[0].size);
+ if (arquivoInput.files[0].size > 2097152) { 
+                alert("Tamanho máximo do arquivo deve ser 2 MB!");
+                return false;
+            }
+        }
+    }
+}
+
+	function validarArquivo2(){
+		//alert('teste');
+    var arquivoInput2 = document.getElementById('imagem');
+    var caminhoArquivo2 = arquivoInput2.value;
+    var extensoesPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
+    if(!extensoesPermitidas.exec(caminhoArquivo2)){
+        alert('Por favor envie um arquivo que tenha as extensões.jpeg/.jpg/.png/.gif .');
+        arquivoInput2.value = '';
+        return false;
+    }else{
+        if (arquivoInput2.files && arquivoInput2.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('visualizarImagem2').innerHTML = '';
+            };
+            reader.readAsDataURL(arquivoInput2.files[0]);
+ console.log(arquivoInput2.files[0].size / 1024 / 1024);
+ console.log(arquivoInput2.files[0].size);
+ if (arquivoInput2.files[0].size > 2097152) { 
+                alert("Tamanho máximo do arquivo deve ser 2 MB!");
+                return false;
+            }
+        }
+    }
+}
+
+	function validarArquivo3(){
+		//alert('teste');
+    var arquivoInput3 = document.getElementById('imagem_graduacao');
+    var caminhoArquivo3 = arquivoInput3.value;
+    var extensoesPermitidas = /(.jpg|.jpeg|.png|.gif)$/i;
+    if(!extensoesPermitidas.exec(caminhoArquivo3)){
+        alert('Por favor envie um arquivo que tenha as extensões.jpeg/.jpg/.png/.gif .');
+        arquivoInput3.value = '';
+        return false;
+    }else{
+        if (arquivoInput3.files && arquivoInput3.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('visualizarImagem3').innerHTML = '';
+            };
+            reader.readAsDataURL(arquivoInput3.files[0]);
+ console.log(arquivoInput3.files[0].size / 1024 / 1024);
+ console.log(arquivoInput3.files[0].size);
+ if (arquivoInput3.files[0].size > 2097152) { 
+                alert("Tamanho máximo do arquivo deve ser 2 MB!");
+                return false;
+            }
+        }
+    }
+}
+
+function choice1(select) {
+     //alert(select.options[select.selectedIndex].value);
+	 var texto = (select.options[select.selectedIndex].value);
+	 //alert (texto);
+	 if(texto=='C'){
+		document.getElementById("dados_academia").style.display = "none";
+		document.getElementById("dados_academia2").style.display = "none";
+		document.getElementById("logo_academia").style.display = "none";
+		document.getElementById("foto_aluno").style.display = "block";
+		document.getElementById("comp_graduacao").style.display = "block";
+		document.getElementById("dados_aluno2").style.display = "block";
+		document.getElementById("dados_aluno3").style.display = "block";
+		document.getElementById("data_aniversario").setAttribute("required","required");
+		
+	 } else {
+	     //alert (texto);
+		 document.getElementById("dados_academia").style.display = "block";
+		 document.getElementById("foto_aluno").style.display = "none";
+		 document.getElementById("comp_graduacao").style.display = "none";
+		 document.getElementById("logo_academia").style.display = "block";
+		 document.getElementById("dados_academia2").style.display = "block";
+		 document.getElementById("dados_aluno2").style.display = "none";
+		 document.getElementById("dados_aluno3").style.display = "none";
+		 document.getElementById("data_aniversario").removeAttribute("required");
+		 document.getElementById("imagem").removeAttribute("required");
+		 document.getElementById("imagem_graduacao").removeAttribute("required");
+
+	 }
+}
+
+
+</script>
+
+</body>
+
+</html>
