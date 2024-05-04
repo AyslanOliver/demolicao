@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             // Prepara e executa a consulta usando prepared statements
-            $stmt = $conn->prepare("SELECT * FROM register_user WHERE email = :email AND senha = :senha");
+            $stmt = $conn->prepare("SELECT * FROM user  WHERE email = :email AND senha = :senha");
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':senha', $senha);
             $stmt->execute();

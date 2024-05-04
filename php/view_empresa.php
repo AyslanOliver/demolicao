@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obter os dados das empresas
-$sql = "SELECT id, cnpj, razao_social, nome_fantasia, data_abertura, ddd_telefone_1, municipio, cep FROM cad_empresa";
+$sql = "SELECT id, cnpj, razao_social, nome_fantasia, data_abertura, ddd_telefone_1, municipio, cep FROM empresa";
 $result = $conn->query($sql);
 
 // Verifica se há resultados

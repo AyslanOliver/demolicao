@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'conexao.php';
 
     // Verificar se já existe um cliente com o mesmo CPF
-    $sql_verificar = "SELECT id FROM cad_cliente WHERE cpf = ?";
+    $sql_verificar = "SELECT id FROM cliente WHERE cpf = ?";
     $stmt_verificar = $conn->prepare($sql_verificar);
     $stmt_verificar->bindParam(1, $_POST['cpf']);
     $stmt_verificar->execute();

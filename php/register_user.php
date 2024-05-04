@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             // Preparar e executar a consulta usando prepared statements
-            $stmt = $conn->prepare("INSERT INTO register_user (nome, sobrenome, email, senha, repetirsenha) VALUES (:nome, :sobrenome, :email, :senha, :repetirsenha)");
+            $stmt = $conn->prepare("INSERT INTO user (nome, sobrenome, email, senha, repetirsenha) VALUES (:nome, :sobrenome, :email, :senha, :repetirsenha)");
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':sobrenome', $sobrenome);
             $stmt->bindParam(':email', $email);
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Define uma variável de sessão para indicar que o cadastro foi bem-sucedido
                 $_SESSION['registro_sucesso'] = true;
                 // Redireciona para a página index.html
-                header("Location: ../index.html");
+                header("Location: ../register2.html");
                 exit();
             } else {
                 echo "Erro ao inserir o registro no banco de dados.";

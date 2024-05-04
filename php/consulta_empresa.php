@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 $cnpj = $_GET['cnpj'];
 
 // Consultar empresa no banco de dados
-$sql = "SELECT id, razao_social, nome_fantasia FROM cad_empresa WHERE cnpj = '$cnpj'";
+$sql = "SELECT id, razao_social, nome_fantasia FROM empresa WHERE cnpj = '$cnpj'";
 $result = $conn->query($sql);
 
 if (!$result) {

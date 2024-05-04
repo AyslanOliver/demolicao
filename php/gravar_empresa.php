@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'conexao.php';
 
     // Verificar se já existe uma empresa com o mesmo CNPJ
-    $sql_verificar = "SELECT id FROM cad_empresa WHERE cnpj = ?";
+    $sql_verificar = "SELECT id FROM empresa WHERE cnpj = ?";
     $stmt_verificar = $conn->prepare($sql_verificar);
     $stmt_verificar->bindParam(1, $_POST['cnpj']);
     $stmt_verificar->execute();
